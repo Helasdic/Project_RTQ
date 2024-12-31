@@ -61,7 +61,7 @@
             <h2 class="text-center">Program Unggulan</h2>
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <div class="d-flex align-items-center bg-light rounded p-3 mb-3">
+                    <div class="d-flex align-items-center bg-light rounded p-3 mb-3 me-5">
                         <div class="icon-container me-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2BC248" viewBox="0 0 24 24">
                                 <path d="M12 22c5.514 0 10-4.486 10-10s-4.486-10-10-10-10 4.486-10 10 4.486 10 10 10zm0-4l-5-5h3v-6h4v6h3l-5 5z"/>
@@ -71,7 +71,7 @@
                             <h6 class="mb-1">Pra Qur'an (Metode Alif Laam Miim)</h6>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center bg-light rounded p-3">
+                    <div class="d-flex align-items-center bg-light rounded p-3 ms-5">
                         <div class="icon-container me-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#2BC248" viewBox="0 0 24 24">
                                 <path d="M12 22c5.514 0 10-4.486 10-10s-4.486-10-10-10-10 4.486-10 10 4.486 10 10 10zm0-4l-5-5h3v-6h4v6h3l-5 5z"/>
@@ -95,15 +95,26 @@
     <!-- Visi & Misi -->
     <section id="visi-misi" class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center">Visi & Misi</h2>
-            <div class="row mt-4">
+            <div class="row mt-4 align-items-center">
                 <div class="col-md-6">
-                    <h4>Visi</h4>
-                    <p>Menumbuhkan kepercayaan diri dalam menghafal Al-Qur'an, menanamkan karakter Qur'ani, dan mencetak generasi pengkaderan sumber daya manusia yang profesional di bidang Al-Quran dan Sunnah.</p>
+                    <h2 class="text-start visi">Visi</h2>
                 </div>
                 <div class="col-md-6">
-                    <h4>Misi</h4>
-                    <ul>
+                    <h2 class="text-start misi">Misi</h2>
+                </div>
+            </div>
+            <div class="row mt-4 align-items-center">
+                <!-- Visi -->
+                <div class="col-md-6 text-start border-end">
+                    <ul style="list-style-type: disc;">
+                        <li>Menumbuhkan kepercayaan diri dalam menghafal Al-Qur'an</li>
+                        <li>Menanamkan karakter Qur'ani</li>
+                        <li>Mencetak generasi pengkaderan sumber daya manusia yang profesional di bidang Al-Quran dan Sunnah</li>
+                    </ul>
+                </div>
+                <!-- Misi -->
+                <div class="col-md-6">
+                    <ul style="list-style-type: disc;">
                         <li>Menumbuhkan kepercayaan diri dalam menghafal Al-Qur'an</li>
                         <li>Menjadi pusat pendidikan Al-Qur'an sejak dini</li>
                     </ul>
@@ -112,26 +123,129 @@
         </div>
     </section>
 
-    <!-- Program Kelas -->
-    <section id="program-kelas" class="bg-light py-5">
+    <section id="program-kelas" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center">Program Kelas</h2>
-            <div class="row mt-4">
+            <div class="row mt-4 align-items-center">
                 <div class="col-md-6">
-                    <h5>Kelas Anak (usia 3-15 tahun)</h5>
+                    <img src="/path/to/image1.jpg" alt="Program Kelas" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
                     <ul>
-                        <li>Sesi Pagi: 06.30 - 08.30 WIB</li>
-                        <li>Sesi Sore: 15.30 - 17.30 WIB</li>
-                        <li>Sesi Malam: 17.30 - 20.00 WIB</li>
+                        <li><strong>Kelas Anak (usia 3-15 tahun)</strong>
+                            <ul>
+                                <li>Sesi Pagi: 06.30 - 08.30 WIB</li>
+                                <li>Sesi Sore: 15.30 - 17.30 WIB</li>
+                                <li>Sesi Malam: 17.30 - 20.00 WIB</li>
+                            </ul>
+                        </li>
+                        <li><strong>Kelas Majlis Tahsin Remaja</strong>
+                            <ul>
+                                <li>Waktu: 20.00 - 21.00 WIB</li>
+                            </ul>
+                        </li>
+                        <li><strong>Kelas Majlis Tahsin Dewasa</strong>
+                            <ul>
+                                <li>Setiap Ahad ba'da Maghrib</li>
+                            </ul>
+                        </li>
+                        <li><strong>Kelas Bahasa Inggris dan Bahasa Arab</strong>
+                            <ul>
+                                <li>Sabtu - Ahad</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="kegiatan-kelas" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Kegiatan Kelas</h2>
+            <div class="row mt-4 align-items-center">
+                <div class="col-md-6">
+                    <ul>
+                        <li>Tasmi' Quran 1 Juz</li>
+                        <li>Qari Anak & Dewasa</li>
+                        <li>Outing Class</li>
+                        <li>Tahfidz Camp</li>
+                        <li>Pawai Obor</li>
+                        <li>Pesantren Weekend</li>
+                        <li>Pesantren Ramadhan</li>
+                        <li>Lomba Tahlil & Tahsin Hijriyah</li>
+                        <li>Lomba Agustusan</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <h5>Kelas Majlis</h5>
-                    <ul>
-                        <li>Tahsin Remaja: 20.00 - 21.00 WIB</li>
-                        <li>Tahsin Dewasa: Ahad Ba'da Maghrib</li>
-                        <li>Kelas Bahasa Inggris & Arab: Sabtu - Ahad</li>
-                    </ul>
+                    <img src="/path/to/image2.jpg" alt="Kegiatan Kelas" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Kelas dan Kegiatan Kelas -->
+    <section id="kelas-kegiatan" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Program Kelas -->
+                <div class="col-md-6 mb-4">
+                    <h2 class="text-center">Program Kelas</h2>
+                    <div class="card border-0 shadow-sm">
+                        <img src="{{ asset('assets/images/masjid.jpeg') }}" class="card-img-top rounded" alt="Program Kelas">
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><span class="badge bg-success">Kelas Anak (usia 3-15 tahun)</span>
+                                    <ul>
+                                        <li>Sesi Pagi: 06.30 - 08.30 WIB</li>
+                                        <li>Sesi Sore: 15.30 - 17.30 WIB</li>
+                                        <li>Sesi Malam: 17.30 - 20.00 WIB</li>
+                                    </ul>
+                                </li>
+                                <li><span class="badge bg-success">Kelas Majlis Tahsin Remaja</span>
+                                    <ul>
+                                        <li>Waktu: 20.00 - 21.00 WIB</li>
+                                    </ul>
+                                </li>
+                                <li><span class="badge bg-success">Kelas Majlis Tahsin Dewasa</span>
+                                    <ul>
+                                        <li>Setiap Ahad ba'da Maghrib - Selesai</li>
+                                    </ul>
+                                </li>
+                                <li><span class="badge bg-success">Kelas Bahasa Inggris</span>
+                                    <ul>
+                                        <li>Sabtu - Ahad</li>
+                                    </ul>
+                                </li>
+                                <li><span class="badge bg-success">Kelas Bahasa Arab</span>
+                                    <ul>
+                                        <li>Sabtu - Ahad</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kegiatan Kelas -->
+                <div class="col-md-6">
+                    <h2 class="text-center">Kegiatan Kelas</h2>
+                    <div class="card border-0 shadow-sm">
+                        <img src="{{ asset('assets/images/kegiatan.jpeg') }}" class="card-img-top rounded" alt="Kegiatan Kelas">
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-book"></i> Tasmi' Qur'an 1 Juz</li>
+                                <li><i class="bi bi-person"></i> Qori Anak & Dewasa</li>
+                                <li><i class="bi bi-sun"></i> Outing Class</li>
+                                <li><i class="bi bi-tree"></i> Tahfidz Camp</li>
+                                <li><i class="bi bi-torch"></i> Pawai Obor</li>
+                                <li><i class="bi bi-house"></i> Pesantren Weekend</li>
+                                <li><i class="bi bi-moon-stars"></i> Pesantren Ramadhan</li>
+                                <li><i class="bi bi-trophy"></i> Lomba Tahfidz & Tahsin Hijriyah</li>
+                                <li><i class="bi bi-flag"></i> Lomba Agustusan</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

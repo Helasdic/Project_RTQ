@@ -5,7 +5,33 @@
     /* overflow: hidden; */
 /* } */
 
+.label {
+  width: 90%;
+  height: auto;
+ }
 
+.frame-8 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 21px;
+  padding: 40px;
+  background-color: var(--white-2);
+  border-radius: var(--shape-corner-medium);
+ }
+ 
+
+.frame-9 {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  gap: 40px;
+  padding: 40px;
+  background-color: var(--white-1);
+  border-radius: var(--shape-corner-medium);
+  box-shadow: var(--m3-elevation-light-3);
+ }
+ 
 .jumbotron {
   padding: 2rem 1rem;
   width: 100%;

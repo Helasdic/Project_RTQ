@@ -9,7 +9,7 @@
                 <li class="nav-item"><a class="nav-link" href="#visi-misi">Visi & Misi</a></li>
                 <li class="nav-item"><a class="nav-link" href="#program-kelas">Program</a></li>
                 <li class="nav-item"><a class="nav-link" href="#kegiatan">Kegiatan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#daftar">Daftar</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('daftar')}}">Daftar</a></li>
             </ul>
         </div>
     </div>

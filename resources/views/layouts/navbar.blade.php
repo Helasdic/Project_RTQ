@@ -31,7 +31,7 @@
             <a href="https://youtube.com" class="text-dark" target="_blank">
                 <i class="bi bi-youtube"></i>
             </a>
-            <a href="#daftar" class="btn btn-primary ms-2">Daftar</a>
+            <a href="#daftar" class="btn btn-primary ms-4">Daftar</a>
         </div>
       </div>
     </div>

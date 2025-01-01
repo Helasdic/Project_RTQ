@@ -91,3 +91,53 @@ h1, h2, h3, h4, h5, h6{
   .misi{
     color: #03A923;
   }
+
+  #program-kelas h2 {
+    font-weight: bold;
+}
+#program-kelas ul {
+    padding-left: 1rem;
+}
+#program-kelas .badge {
+    font-size: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+.border-start {
+    border-left: 3px dashed #6c757d;
+}
+
+#kegiatan-kelas h2 {
+  font-weight: bold;
+  color: #333;
+}
+#kegiatan-kelas ul {
+  padding-left: 0;
+}
+#kegiatan-kelas li {
+  font-size: 1.2rem;
+  color: #555;
+}
+#kegiatan-kelas i {
+  font-size: 1.5rem;
+}
+
+.feedback-section {
+  padding: 50px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+.banner-section {
+  background-color: #28a745;
+  color: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+.banner-section h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.banner-section .btn {
+  font-weight: bold;
+}

@@ -125,129 +125,162 @@
 
     <section id="program-kelas" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center">Program Kelas</h2>
-            <div class="row mt-4 align-items-center">
+            <h2 class="text-center mb-5">Program Kelas</h2>
+            <div class="row align-items-center">
+                <!-- Gambar Kelas -->
                 <div class="col-md-6">
-                    <img src="/path/to/image1.jpg" alt="Program Kelas" class="img-fluid rounded">
+                    <img src="{{ asset('assets/images/masjid.jpeg') }}" alt="Program Kelas" class="img-fluid rounded">
                 </div>
+                
+                <!-- Daftar Program -->
                 <div class="col-md-6">
-                    <ul>
-                        <li><strong>Kelas Anak (usia 3-15 tahun)</strong>
-                            <ul>
+                    <div class="border-start border-3 border-secondary ps-4">
+                        <div class="mb-4">
+                            <span class="badge bg-success mb-2">Kelas Anak (usia 3-15 tahun)</span>
+                            <ul class="list-unstyled">
                                 <li>Sesi Pagi: 06.30 - 08.30 WIB</li>
                                 <li>Sesi Sore: 15.30 - 17.30 WIB</li>
                                 <li>Sesi Malam: 17.30 - 20.00 WIB</li>
                             </ul>
-                        </li>
-                        <li><strong>Kelas Majlis Tahsin Remaja</strong>
-                            <ul>
+                        </div>
+                        <div class="mb-4">
+                            <span class="badge bg-success mb-2">Kelas Majlis Tahsin Remaja</span>
+                            <ul class="list-unstyled">
                                 <li>Waktu: 20.00 - 21.00 WIB</li>
                             </ul>
-                        </li>
-                        <li><strong>Kelas Majlis Tahsin Dewasa</strong>
-                            <ul>
+                        </div>
+                        <div class="mb-4">
+                            <span class="badge bg-success mb-2">Kelas Majlis Tahsin Dewasa</span>
+                            <ul class="list-unstyled">
                                 <li>Setiap Ahad ba'da Maghrib</li>
                             </ul>
-                        </li>
-                        <li><strong>Kelas Bahasa Inggris dan Bahasa Arab</strong>
-                            <ul>
+                        </div>
+                        <div>
+                            <span class="badge bg-success mb-2">Kelas Bahasa Inggris</span>
+                            <ul class="list-unstyled">
                                 <li>Sabtu - Ahad</li>
                             </ul>
-                        </li>
-                    </ul>
+                        </div>
+                        <div>
+                            <span class="badge bg-success mb-2">Kelas Bahasa Arab</span>
+                            <ul class="list-unstyled">
+                                <li>Sabtu - Ahad</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section id="kegiatan-kelas" class="py-5">
+    <section id="kegiatan-kelas" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center">Kegiatan Kelas</h2>
-            <div class="row mt-4 align-items-center">
+            <h2 class="text-center mb-5">Kegiatan Kelas</h2>
+            <div class="row align-items-center">
+                <!-- Daftar Kegiatan -->
                 <div class="col-md-6">
-                    <ul>
-                        <li>Tasmi' Quran 1 Juz</li>
-                        <li>Qari Anak & Dewasa</li>
-                        <li>Outing Class</li>
-                        <li>Tahfidz Camp</li>
-                        <li>Pawai Obor</li>
-                        <li>Pesantren Weekend</li>
-                        <li>Pesantren Ramadhan</li>
-                        <li>Lomba Tahlil & Tahsin Hijriyah</li>
-                        <li>Lomba Agustusan</li>
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-bookmark-check-fill text-success me-3"></i> Tasmi' Quran 1 Juz
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-people-fill text-success me-3"></i> Qari Anak & Dewasa
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-bag-fill text-success me-3"></i> Outing Class
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-mountain text-success me-3"></i> Tahfidz Camp
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-torch text-success me-3"></i> Pawai Obor
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-house-door-fill text-success me-3"></i> Pesantren Weekend
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-moon-stars-fill text-success me-3"></i> Pesantren Ramadhan
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-award-fill text-success me-3"></i> Lomba Tahlil & Tahsin Hijriyah
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="bi bi-flag-fill text-success me-3"></i> Lomba Agustusan
+                        </li>
                     </ul>
                 </div>
+    
+                <!-- Gambar Kegiatan -->
                 <div class="col-md-6">
-                    <img src="/path/to/image2.jpg" alt="Kegiatan Kelas" class="img-fluid rounded">
+                    <img src="{{ asset('assets/images/kegiatan.jpeg') }}" alt="Kegiatan Kelas" class="img-fluid rounded">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Program Kelas dan Kegiatan Kelas -->
-    <section id="kelas-kegiatan" class="bg-light py-5">
+    <section id="para-donatur" class="py-5">
         <div class="container">
-            <div class="row">
-                <!-- Program Kelas -->
-                <div class="col-md-6 mb-4">
-                    <h2 class="text-center">Program Kelas</h2>
-                    <div class="card border-0 shadow-sm">
-                        <img src="{{ asset('assets/images/masjid.jpeg') }}" class="card-img-top rounded" alt="Program Kelas">
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li><span class="badge bg-success">Kelas Anak (usia 3-15 tahun)</span>
-                                    <ul>
-                                        <li>Sesi Pagi: 06.30 - 08.30 WIB</li>
-                                        <li>Sesi Sore: 15.30 - 17.30 WIB</li>
-                                        <li>Sesi Malam: 17.30 - 20.00 WIB</li>
-                                    </ul>
-                                </li>
-                                <li><span class="badge bg-success">Kelas Majlis Tahsin Remaja</span>
-                                    <ul>
-                                        <li>Waktu: 20.00 - 21.00 WIB</li>
-                                    </ul>
-                                </li>
-                                <li><span class="badge bg-success">Kelas Majlis Tahsin Dewasa</span>
-                                    <ul>
-                                        <li>Setiap Ahad ba'da Maghrib - Selesai</li>
-                                    </ul>
-                                </li>
-                                <li><span class="badge bg-success">Kelas Bahasa Inggris</span>
-                                    <ul>
-                                        <li>Sabtu - Ahad</li>
-                                    </ul>
-                                </li>
-                                <li><span class="badge bg-success">Kelas Bahasa Arab</span>
-                                    <ul>
-                                        <li>Sabtu - Ahad</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <h2 class="text-center mb-5">Para Donatur</h2>
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
                 </div>
-
-                <!-- Kegiatan Kelas -->
-                <div class="col-md-6">
-                    <h2 class="text-center">Kegiatan Kelas</h2>
-                    <div class="card border-0 shadow-sm">
-                        <img src="{{ asset('assets/images/kegiatan.jpeg') }}" class="card-img-top rounded" alt="Kegiatan Kelas">
-                        <div class="card-body">
-                            <ul class="list-unstyled">
-                                <li><i class="bi bi-book"></i> Tasmi' Qur'an 1 Juz</li>
-                                <li><i class="bi bi-person"></i> Qori Anak & Dewasa</li>
-                                <li><i class="bi bi-sun"></i> Outing Class</li>
-                                <li><i class="bi bi-tree"></i> Tahfidz Camp</li>
-                                <li><i class="bi bi-torch"></i> Pawai Obor</li>
-                                <li><i class="bi bi-house"></i> Pesantren Weekend</li>
-                                <li><i class="bi bi-moon-stars"></i> Pesantren Ramadhan</li>
-                                <li><i class="bi bi-trophy"></i> Lomba Tahfidz & Tahsin Hijriyah</li>
-                                <li><i class="bi bi-flag"></i> Lomba Agustusan</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
+                </div>
+                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
                 </div>
             </div>
         </div>
     </section>
+    
 @endsection

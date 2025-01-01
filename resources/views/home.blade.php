@@ -282,5 +282,47 @@
             </div>
         </div>
     </section>
+
+    <!-- Section Feedback -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Feedback Text -->
+                <div class="col-md-6">
+                    <div>
+                        <h2 class="fw-bold">Feedback</h2>
+                        <p>
+                            Pesan dan Masukkan dari anda sangat berharga bagi kami untuk kemajuan dan perkembangan 
+                            yang lebih baik lagi bagi Rumah Tahfidz Quran kedepannya.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feedback Form -->
+                <div class="col-md-6">
+                    <div class="p-4 shadow-sm bg-white rounded">
+                        <form action="" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="feedback" class="form-label">Pesan Feedback</label>
+                                <textarea name="feedback" id="feedback" rows="5" class="form-control" placeholder="Masukkan pesan feedback" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-send"></i> Kirim
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
 @endsection

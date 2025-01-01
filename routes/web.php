@@ -21,3 +21,8 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+
+Route::get('/kegiatan', function () {
+    return view('kegiatan');
+})->name('kegiatan');

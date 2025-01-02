@@ -26,3 +26,7 @@ Route::get('/', function () {
 Route::get('/kegiatan', function () {
     return view('kegiatan');
 })->name('kegiatan');
+
+Route::get('/dashboard', function () {
+    return view('dashboard.maindashboard');
+})->name('dashboard');

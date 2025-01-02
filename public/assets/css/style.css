@@ -1,32 +1,36 @@
-/* Styling Hero Section */
-/* .hero-section {
-    position: relative;
-    height: 100vh; /* Full height */
-    /* overflow: hidden; */
-/* } */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
 
 .label {
-  width: 90%;
+  width: 100%;
   height: auto;
  }
 
-.frame-8 {
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Bubblegum Sans', sans-serif;
+}
+
+.frame-mini {
+  float: right;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  gap: 21px;
+  width: 90%;
+  gap: 12px;
   padding: 40px;
-  background-color: var(--white-2);
   border-radius: var(--shape-corner-medium);
  }
  
-
 .frame-9 {
   display: flex;
   flex-direction: column;
-  width: 95%;
-  gap: 40px;
+  width: 110%;
+  gap: 20px;
   padding: 40px;
+  margin-bottom: 2rem;
   background-color: var(--white-1);
   border-radius: var(--shape-corner-medium);
   box-shadow: var(--m3-elevation-light-3);
@@ -36,7 +40,6 @@
   padding: 2rem 1rem;
   width: 100%;
   height: 32rem;
-  top: 5rem;
   margin-bottom: 2rem;
   background-color: #e9ecef;
   background-image: url('../images/banner.jpeg');
@@ -84,7 +87,9 @@
 
 .fasilitas {
     position: relative;
-    margin-top: -20px; /* Sesuaikan untuk menempel ke bawah jumbotron */
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: -5rem; /* Sesuaikan untuk menempel ke bawah jumbotron */
     border-radius: 10px; /* Opsional untuk membuat sudut melengkung */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
     z-index: 1; /* Pastikan fasilitas muncul di atas elemen lain */
@@ -106,3 +111,60 @@
     z-index: 0; /* Pastikan jumbotron di bawah fasilitas */
   }
   
+  .visi{
+    color: #066930;
+  }
+
+  .misi{
+    color: #03A923;
+  }
+
+  #program-kelas h2 {
+    font-weight: bold;
+}
+#program-kelas ul {
+    padding-left: 1rem;
+}
+#program-kelas .badge {
+    font-size: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+.border-start {
+    border-left: 3px dashed #6c757d;
+}
+
+#kegiatan-kelas h2 {
+  font-weight: bold;
+  color: #333;
+}
+#kegiatan-kelas ul {
+  padding-left: 0;
+}
+#kegiatan-kelas li {
+  font-size: 1.2rem;
+  color: #555;
+}
+#kegiatan-kelas i {
+  font-size: 1.5rem;
+}
+
+.feedback-section {
+  padding: 50px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+.banner-section {
+  background-color: #28a745;
+  color: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+.banner-section h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.banner-section .btn {
+  font-weight: bold;
+}

@@ -88,14 +88,19 @@ h1, h2, h3, h4, h5, h6{
  
 .jumbotron {
   padding: 2rem 1rem;
-  width: 100%;
   height: 32rem;
+  width: 100%;
   margin-bottom: 2rem;
   background-color: #e9ecef;
   background-image: url('../images/banner.jpeg');
   background-position: center;
   background-size: 100%;
   border-radius: .3rem;
+  display: inline-flex;
+  position: relative; /* Tambahkan ini jika belum ada */
+  z-index: 0; /* Pastikan jumbotron di bawah fasilitas */
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-image {
@@ -106,9 +111,10 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .hero-overlay {
+    display: contents;
     color: white;
-    left: 100px;
-    top: 174px;
+    /* left: 100px;
+    top: 174px; */
     width: 538px;
     height: 222px;
     /* max-width: 50%; */

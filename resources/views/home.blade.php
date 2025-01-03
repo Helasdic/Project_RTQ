@@ -7,7 +7,7 @@
         <div class="hero-overlay position-absolute top-50 start-0 ps-4 translate-middle-y text-white">
             <h1 class="fw-bold">Rumah Tahfidh Qur'an</h1>
             <p class="lead">Menumbuhkan kepercayaan diri dalam menghafal Al-Qur'an sejak dini</p>
-            <a href="#daftar" class="btn btn-primary mt-3">Daftar Sekarang</a>
+            <a href="#daftar" class="btn btn-primary mt-3" style="width: fit-content">Daftar Sekarang</a>
         </div>
     </div>
     
@@ -131,7 +131,7 @@
                 
                 <!-- Daftar Program -->
                 <div class="col-md-6">
-                    <div class="border-start border-3 border-secondary ps-4">
+                    <div class="mt-3 border-start border-3 border-secondary ps-4">
                         <div class="mb-4">
                             <span class="badge bg-success mb-2">Kelas Anak (usia 3-15 tahun)</span>
                             <ul class="list-unstyled">

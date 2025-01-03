@@ -1,23 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Header -->
-    <header class="p-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="#" class="btn btn-outline-secondary">Logo</a>
-            <nav class="d-flex gap-2">
-                <a href="#" class="nav-link px-3">Home</a>
-                <a href="#" class="nav-link px-3">Dashboard</a>
-                <a href="#" class="nav-link px-3">Visi Misi</a>
-                <a href="#" class="nav-link px-3">Kegiatan</a>
-            </nav>
-            <a href="#" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i> Logout</a>
-        </div>
-    </header>
-
-    <!-- Main Content -->
     <main class="container py-4">
-        <h1 class="fw-bold mb-3">Dashboard</h1>
+        <div class="row mb-4 align-items-center">
+            <div class="col-lg-6">
+                <h1 class="fw-bold">Dashboard</h1>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex gap-3">
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="min-width: 150px;">
+                        <h5>Siswa</h5>
+                        <h3 class="fw-bold">100</h3>
+                    </div>
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="min-width: 150px;">
+                        <h5>Pendaftar</h5>
+                        <h3 class="fw-bold">20</h3>
+                    </div>
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="min-width: 150px;">
+                        <h5>Tidak Lanjut</h5>
+                        <h3 class="fw-bold">5</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Tabs -->
         <ul class="nav nav-tabs">
@@ -34,22 +39,6 @@
                 <a class="nav-link" href="#">Tidak Lanjut</a>
             </li>
         </ul>
-
-        <!-- Info Cards -->
-        <div class="row my-4">
-            <div class="col-lg-6 col-md-12 mb-3">
-                <div class="card p-3 text-center">
-                    <h5>Siswa</h5>
-                    <h3 class="fw-bold">100</h3>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 mb-3">
-                <div class="card p-3 text-center">
-                    <h5>Pendaftar</h5>
-                    <h3 class="fw-bold">20</h3>
-                </div>
-            </div>
-        </div>
 
         <!-- Buttons -->
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
@@ -93,10 +82,10 @@
         </div>
 
         <!-- Pagination -->
-        <div class="pagination mt-4">
-            <a href="#">&laquo;</a>
-            <a href="#" class="active">1</a>
-            <a href="#">&raquo;</a>
+        <div class="d-flex justify-content-center mt-4">
+            <a href="#" class="btn btn-outline-secondary me-1">&laquo;</a>
+            <a href="#" class="btn btn-secondary">1</a>
+            <a href="#" class="btn btn-outline-secondary ms-1">&raquo;</a>
         </div>
     </main>
 @endsection

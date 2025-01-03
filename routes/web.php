@@ -24,3 +24,7 @@ Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
 Route::get('/kegiatan', function () {
     return view('kegiatan');
 })->name('kegiatan');
+
+Route::get('/dashboard', function () {
+    return view('dashboard.maindashboard');
+})->name('dashboard');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DaftarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Route untuk halaman home
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
 
 Route::get('/kegiatan', function () {
     return view('kegiatan');

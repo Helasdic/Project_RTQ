@@ -7,7 +7,7 @@
         <div class="hero-overlay position-absolute top-50 start-0 ps-4 translate-middle-y text-white">
             <h1 class="fw-bold">Rumah Tahfidh Qur'an</h1>
             <p class="lead">Menumbuhkan kepercayaan diri dalam menghafal Al-Qur'an sejak dini</p>
-            <a href="#daftar" class="btn btn-primary mt-3" style="width: fit-content">Daftar Sekarang</a>
+            <a href="#daftar" class="btn btn-success mt-3" style="width: fit-content">Daftar Sekarang</a>
         </div>
     </div>
     

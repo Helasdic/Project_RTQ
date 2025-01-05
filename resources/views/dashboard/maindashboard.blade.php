@@ -43,9 +43,9 @@
         <div class="tab-content mt-4" id="dashboardTabsContent">
             <!-- Pendaftar Tab -->
             <div class="tab-pane fade show active" id="pendaftar" role="tabpanel">
-                <div class="d-flex justify-content-end mb-3">
+                <div class="d-flex justify-content-between mb-3">
                     <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
-                    <button class="btn btn-primary ms-2"><i class="bi bi-plus-circle"></i> Tambah Pendaftar</button>
+                    <button class="btn btn-success ms-2"><i class="bi bi-plus-circle"></i> Tambah Pendaftar</button>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
@@ -82,6 +82,10 @@
 
             <!-- Siswa Tab -->
             <div class="tab-pane fade" id="siswa" role="tabpanel">
+                <div class="d-flex justify-content-between mb-3">
+                    <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
+                    <button class="btn btn-success ms-2"><i class="bi bi-plus-circle"></i> Tambah Siswa</button>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead class="table-info">
@@ -117,27 +121,50 @@
 
             <!-- Donatur Tab -->
             <div class="tab-pane fade" id="donatur" role="tabpanel">
+                <div class="d-flex justify-content-between mb-3">
+                    <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
+                    <button class="btn btn-success ms-2"><i class="bi bi-plus-circle"></i> Tambah Donatur</button>
+                </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead class="table-primary">
+                    <table class="table table-bordered">
+                        <thead class="table-success">
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Donatur</th>
-                                <th>Nominal</th>
-                                <th>Tanggal</th>
+                                <th>Nama Lengkap</th>
+                                <th>Jumlah Donasi</th>
+                                <th>Tanggal Donasi</th>
+                                <th>Jenis Donasi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>PT XYZ</td>
-                                <td>Rp 10,000,000</td>
-                                <td>01/01/2025</td>
+                                <td>Ilhamudin Armayin</td>
+                                <td>Rp10.000.000</td>
+                                <td>12/12/2024</td>
+                                <td>Cash</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-secondary btn-sm"><i class="bi bi-three-dots"></i></button>
+                                </td>
                             </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Muhammad Yusuf</td>
+                                <td>Rp5.000.000</td>
+                                <td>12/12/2024</td>
+                                <td>Cash</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-secondary btn-sm"><i class="bi bi-three-dots"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Tambahkan data lainnya sesuai kebutuhan -->
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div>            
 
             <!-- Tidak Lanjut Tab -->
             <div class="tab-pane fade" id="tidak-lanjut" role="tabpanel">

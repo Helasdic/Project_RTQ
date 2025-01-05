@@ -13,16 +13,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#visi-misi">Visi & Misi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#program">Program</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#kegiatan">Kegiatan</a>
-          </li>
+        <ul class="navbar-nav mx-auto" style="gap: 20px;">
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('home')}}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('home')}}#visi-misi">Visi & Misi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('home')}}#program-kelas">Program</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('kegiatan')}}">Kegiatan</a>
+            </li>
         </ul>
         <div class="d-flex align-items-center">
             <a href="https://instagram.com" class="text-dark me-2" target="_blank">

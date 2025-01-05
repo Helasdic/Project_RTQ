@@ -14,6 +14,56 @@ h1, h2, h3, h4, h5, h6{
   font-family: 'Bubblegum Sans', sans-serif;
 }
 
+.input-group-append {
+  cursor: pointer;
+}
+
+.space{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.card-kegiatan{
+  display: inline-flex !important;
+  flex-direction: row !important;
+  overflow: hidden;
+  width: 100% !important;
+  height: 250px !important;
+  border-radius: var(--shape-corner-large) !important;
+  box-shadow: var(--m3-elevation-light-3);
+}
+
+.img-kegiatan{
+  border-radius: var(--shape-corner-large) !important;
+  width: 54% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.my-title-class {
+  color: var(--primay-2); /* Warna biru untuk judul */
+  font-size: 24px;   /* Ukuran font judul */
+}
+
+.my-content-class {
+  color: var(--black-3); /* Warna abu-abu gelap untuk teks konten */
+}
+
+.my-confirm-button-class {
+  background-color: var(--primay-2) !important; /* Warna hijau untuk tombol konfirmasi */
+  border-color: #28a745 !important;
+  color: white !important;
+}
+
+.swal2-styled.my-confirm-button-class:focus{
+  box-shadow: 0 0 0 3px rgba(40,167,69,.5) !important;
+}
+
+.swal2-styled.my-confirm-button-class:hover{
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+}
+
 .primay {
   color: var(--primay-2);
 }

@@ -8,6 +8,7 @@
     --black-3: rgba(61, 61, 61, 1);
     --black-1: rgba(112, 112, 112, 1);
     --acsend-1: rgba(255, 228, 87, 1);
+
     --heading-h2-font-family: "Bubblegum Sans", Helvetica;
     --heading-h2-font-weight: 400;
     --heading-h2-font-size: 64px;
@@ -52,6 +53,7 @@
     --body-text-1-bold-font-style: normal;
     --m3-elevation-light-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px
     rgba(0, 0, 0, 0.15);
+    --shape-corner-large: 16px;
     --shape-corner-medium: 12px;
     --shape-corner-small: 8px;
    }

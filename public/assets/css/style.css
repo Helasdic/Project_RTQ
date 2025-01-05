@@ -18,6 +18,15 @@ h1, h2, h3, h4, h5, h6{
   cursor: pointer;
 }
 
+.space-btn{
+  border-radius: var(--shape-corner-small) !important;
+  display: inline-flex !important;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
 .space{
   display: inline-flex;
   flex-direction: column;

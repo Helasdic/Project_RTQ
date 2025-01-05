@@ -27,7 +27,7 @@
                 <a class="nav-link" href="{{route('kegiatan')}}">Kegiatan</a>
             </li>
         </ul>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" style="gap: 16px;>
             <a href="https://instagram.com" class="text-dark me-2" target="_blank">
                 <i class="bi bi-instagram"></i>
             </a>

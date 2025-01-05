@@ -21,10 +21,7 @@ return new class extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->text('alamat_lengkap');
-            $table->string('asal_sekolah');
-            $table->text('alamat_sekolah');
-            $table->string('nisn')->nullable(); // Nomor Induk Siswa Nasional
-            $table->string('npsn')->nullable(); // Nomor Pokok Sekolah Nasional
+            $table->text('nik');
             $table->integer('anak_ke');
             $table->integer('jumlah_saudara_kandung');
             $table->timestamps();

@@ -18,16 +18,16 @@ class Siswa extends Model
         'tempat_lahir',
         'tanggal_lahir',
         'alamat_lengkap',
-        'asal_sekolah',
-        'alamat_sekolah',
-        'nisn',
-        'npsn',
+        'nik',
         'anak_ke',
         'jumlah_saudara_kandung',
     ];
 
-    public function waliSiswa()
-    {
-        return $this->belongsTo(WaliSiswa::class, 'wali_siswa_id');
+    public function sekolah() {
+        return $this->belongsTo(Sekolah::class, 'id_siswa', 'id');
+    }
+    
+    public function walisiswa() {
+        return $this->belongsTo(Walisiswa::class, 'id_siswa','id');
     }
 }

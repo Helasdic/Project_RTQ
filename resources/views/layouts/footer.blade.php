@@ -20,18 +20,19 @@
                     <p class="mb-0">Email: <span class="fw-bold">baqpekayon@gmail.com</span></p>
                 </div>
             </div>
-        </div>
-    </div>  
-</section>  
+        </div>  
+    </section>  
 
     <!-- Section Sosial Media -->
     <section class="py-3" style="background: #28a745; color: white;">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Informasi Kontak -->
-                <div class="d-flex flex-column flex-md-row gap-2">
-                    <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">+6281224511538</span></p>
-                    <p class="mb-0">Informasi Lebih Lanjut: <span class="fw-bold">baqpekayon@gmail.com</span></p>
+                <div class="col-md-6 mb-3 mb-md-0 text-center text-md-start">
+                    <div class="d-flex flex-column flex-md-row gap-2 justify-content-center justify-content-md-start">
+                        <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">+6281224511538</span></p>
+                        <p class="mb-0">Email: <span class="fw-bold">baqpekayon@gmail.com</span></p>
+                    </div>
                 </div>
 
                 <!-- Sosial Media -->

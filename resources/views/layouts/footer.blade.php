@@ -24,11 +24,10 @@
     </div>  
 </section>  
 
-<!-- Section Sosial Media -->
-<section class="py-3" style="background: #28a745; color: white;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-between align-items-center flex-wrap text-center text-md-start">
+    <!-- Section Sosial Media -->
+    <section class="py-3" style="background: #28a745; color: white;">
+        <div class="container">
+            <div class="row align-items-center">
                 <!-- Informasi Kontak -->
                 <div class="d-flex flex-column flex-md-row gap-2">
                     <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">+6281224511538</span></p>
@@ -36,18 +35,20 @@
                 </div>
 
                 <!-- Sosial Media -->
-                <div class="d-flex gap-3 mt-2 mt-md-0">
-                    <a href="#" class="text-white d-flex align-items-center gap-1">
-                        <i class="bi bi-instagram"></i> Baqpekayon
-                    </a>
-                    <a href="#" class="text-white d-flex align-items-center gap-1">
-                        <i class="bi bi-facebook"></i> Baqpekayon
-                    </a>
-                    <a href="#" class="text-white d-flex align-items-center gap-1">
-                        <i class="bi bi-youtube"></i> Baqpekayon
-                    </a>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="#" class="text-white d-flex align-items-center gap-1">
+                            <i class="bi bi-instagram"></i> Baqpekayon
+                        </a>
+                        <a href="#" class="text-white d-flex align-items-center gap-1">
+                            <i class="bi bi-facebook"></i> Baqpekayon
+                        </a>
+                        <a href="#" class="text-white d-flex align-items-center gap-1">
+                            <i class="bi bi-youtube"></i> Baqpekayon
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+{{-- </footer> --}}

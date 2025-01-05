@@ -26,3 +26,7 @@ Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
 Route::get('/kegiatan', function () {
     return view('kegiatan');
 })->name('kegiatan');
+
+Route::get('/dashboard', function () {
+    return view('dashboard.maindashboard');
+})->name('dashboard');

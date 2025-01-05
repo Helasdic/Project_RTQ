@@ -18,7 +18,7 @@
                                 <p class="card-text">Berakhir pada: 16/04/2023</p>
                             </div> 
                             <a href="#" class="btn btn-danger">
-                                <i class="bi bi-youtube btn-text"></i> Kunjungi Laman
+                                <i></i> Kunjungi Laman
                             </a>
                         </div>
                     </div>

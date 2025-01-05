@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">RTQ</a>
+      <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="img-fluid rounded" style="width: 5%">
+      <a class="navbar-brand" href="#"></a>
       <button
         class="navbar-toggler"
         type="button"

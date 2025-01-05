@@ -12,11 +12,11 @@
                 <h3 class="fw-bold mb-3">Daftar Sekarang</h3>
                 <p class="fs-4 mb-4">Kuota Terbatas</p>
                 <div class="d-flex justify-content-end gap-3 mb-4">
-                    <a href="#feedback" class="btn btn-warning text-dark fw-bold px-4">Feedback</a>
-                    <a href="#" class="btn btn-light fw-bold px-4">Daftar Sekarang</a>
+                    <a href="{{route('home')}}#feedback" class="btn btn-warning text-dark fw-bold px-4">Feedback</a>
+                    <a href="{{route('daftar')}}" class="btn btn-light fw-bold px-4">Daftar Sekarang</a>
                 </div>
                 <div class="text-white">
-                    <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">Telp. 0812-2451-1538</span></p>
+                    <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">+6281224511538</span></p>
                     <p class="mb-0">Email: <span class="fw-bold">baqpekayon@gmail.com</span></p>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="col-md-12 d-flex justify-content-between align-items-center flex-wrap text-center text-md-start">
                 <!-- Informasi Kontak -->
                 <div class="d-flex flex-column flex-md-row gap-2">
-                    <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">Telp. 0812-2451-1538</span></p>
+                    <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">+6281224511538</span></p>
                     <p class="mb-0">Informasi Lebih Lanjut: <span class="fw-bold">baqpekayon@gmail.com</span></p>
                 </div>
 

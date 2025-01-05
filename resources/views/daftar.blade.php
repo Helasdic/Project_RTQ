@@ -35,29 +35,52 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
-                                    <input type="text" class="frame-input" id="tanggalLahir" aria-describedby="tanggalLahir" name="tanggalLahir" placeholder="ingetin nnti ganti pake datepicker">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input-group date" id="tanggalLahir">
+                                                <input type="text" class="frame-input" style="width: 90%" id="date"/>
+                                                <span class="input-group-append">
+                                                  <span class="input-group-text bg-light d-block">
+                                                    <i class="fa fa-calendar"></i>
+                                                  </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
                                 </div>
                                 <div class="mb-3">
                                     <label for="alamatLengkap" class="form-label">Alamat Lengkap</label>
                                     <textarea class="frame-input" id="alamatLengkap" aria-describedby="alamatLengkap" name="alamatLengkap" rows="4" cols="50"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="asalSekolah" class="form-label">Asal Sekolah</label>
-                                    <input type="text" class="frame-input" id="asalSekolah" aria-describedby="asalSekolah" name="asalSekolah">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="alamatSekolah" class="form-label">Alamat Sekolah</label>
-                                    <textarea class="frame-input" id="alamatSekolah" aria-describedby="alamatSekolah" name="alamatSekolah" rows="4" cols="50"></textarea>
+                                    <label for="status" class="form-label">Apakah anda sebelumnya bersekolah ?</label>
+                                    <select class="frame-input" aria-label="Default select example" id="status" name="status">
+                                        <option value="">- pilih -</option>
+                                        <option value="Ya">Ya</option>
+                                        <option value="Tidak">Tidak</option>
+                                    </select>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="nisn" class="form-label">NISN</label>
-                                    <input type="number" class="frame-input" id="nisn" aria-describedby="nisn" name="nisn">
+                                <div id="form-sekolah" style="display: none">
+                                    <div class="mb-3">
+                                        <label for="asalSekolah" class="form-label">Asal Sekolah</label>
+                                        <input type="text" class="frame-input" id="asalSekolah" aria-describedby="asalSekolah" name="asalSekolah">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="alamatSekolah" class="form-label">Alamat Sekolah</label>
+                                        <textarea class="frame-input" id="alamatSekolah" aria-describedby="alamatSekolah" name="alamatSekolah" rows="4" cols="50"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nisn" class="form-label">NISN</label>
+                                        <input type="number" class="frame-input" id="nisn" aria-describedby="nisn" name="nisn">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="npsn" class="form-label">NPSN</label>
+                                        <input type="number" class="frame-input" id="npsn" aria-describedby="npsn" name="npsn">
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="npsn" class="form-label">NPSN</label>
-                                    <input type="number" class="frame-input" id="npsn" aria-describedby="npsn" name="npsn">
-                                </div>
+
                                 <div class="mb-3">
                                     <label for="nik" class="form-label">NIK</label>
                                     <input type="number" class="frame-input" id="nik" aria-describedby="nik" name="nik">
@@ -197,18 +220,41 @@
 
 @push('myscript')
     <script>
+        $(document).ready(function() {
+            $('#status').on('change', function(e) {
+                $('#form-sekolah').toggle($(this).val() === 'Ya');
+
+                // let status = $(this).val();
+                // let form = $('#form-sekolah');
+                // console.log(status);
+
+                // if (status === 'Ya') {
+                //     form.show();
+                // } else {
+                //     form.hide();
+                // }
+            })
+        });
+
         $(function(){
+            $('#tanggalLahir').datepicker();
             $("#formDaftar").submit(function(e){  
                 e.preventDefault();
                 Swal.fire({
                     title: "Pendaftaran Berhasil!",
                     text: "Admin akan menghubungi anda secepatnya untuk tahap selanjutnya",
                     icon: "success",
-                    confirmButtonText: "OK", // Menambahkan teks pada tombol OK (opsional)
-                    allowOutsideClick: false // Mencegah Sweetalert tertutup jika diklik di luar (opsional, tapi disarankan)
-                }).then((result) => { // Menambahkan .then untuk menangani hasil Sweetalert
-                    if (result.isConfirmed) { // Memeriksa apakah tombol OK ditekan
-                        this.submit(); // Submit form setelah Sweetalert ditutup
+                    confirmButtonText: "Terima Kasih",
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'my-title-class', // Class untuk judul
+                        content: 'my-content-class', // Class untuk teks konten
+                        confirmButton: 'my-confirm-button-class' // Class untuk tombol konfirmasi
+                        // Anda juga bisa menambahkan class untuk tombol cancel, popup, icon, dll.
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
                     }
                 });
             });

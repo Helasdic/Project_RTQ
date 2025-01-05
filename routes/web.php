@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
+Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
 
 Route::get('/kegiatan', function () {
     return view('kegiatan');

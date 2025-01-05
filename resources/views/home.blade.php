@@ -141,7 +141,7 @@
                 
                 <!-- Daftar Program -->
                 <div class="col-md-6">
-                    <div class="mt-3 border-start border-3 border-secondary ps-4">
+                    <div class="mt-3 border-start border-3 border-secondary ps-4 ms-4">
                         <div class="mb-4">
                             <span class="badge bg-success mb-2">Kelas Anak (usia 3-15 tahun)</span>
                             <ul class="list-unstyled">
@@ -197,10 +197,10 @@
                             <i class="bi bi-bag-fill text-success me-3"></i> Outing Class
                         </li>
                         <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-mountain text-success me-3"></i> Tahfidz Camp
+                            <i class="bi bi-house-fill text-success me-3"></i> Tahfidz Camp
                         </li>
                         <li class="d-flex align-items-center mb-3">
-                            <i class="bi bi-torch text-success me-3"></i> Pawai Obor
+                            <i class="bi bi-fire text-success me-3"></i> Pawai Obor
                         </li>
                         <li class="d-flex align-items-center mb-3">
                             <i class="bi bi-house-door-fill text-success me-3"></i> Pesantren Weekend

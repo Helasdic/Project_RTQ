@@ -118,7 +118,7 @@
                                 <td>567890123</td>
                                 <td><i class="bi bi-check-circle text-success"></i></td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#santriModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
@@ -153,7 +153,7 @@
                                 <td>12/12/2024</td>
                                 <td>Cash</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#donaturModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-secondary btn-sm"><i class="bi bi-three-dots"></i></button>
                                 </td>
                             </tr>
@@ -164,11 +164,10 @@
                                 <td>12/12/2024</td>
                                 <td>Cash</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#donaturModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-secondary btn-sm"><i class="bi bi-three-dots"></i></button>
                                 </td>
                             </tr>
-                            <!-- Tambahkan data lainnya sesuai kebutuhan -->
                         </tbody>
                     </table>
                 </div>
@@ -200,7 +199,7 @@
                                 <td>453463636</td>
                                 <td><i class="bi bi-x-circle text-danger"></i></td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#tidakLanjutModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
@@ -280,4 +279,127 @@
             </div>
         </div>
     </div>
+    <!-- Santri Modal -->
+    <div class="modal fade" id="santriModal" tabindex="-1" aria-labelledby="santriModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="santriModalLabel">Profil Lengkap Santri</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>NIK</th>
+                            <td>567890123</td>
+                        </tr>
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <td>Ahmad Budi</td>
+                        </tr>
+                        <tr>
+                            <th>Nama Panggilan</th>
+                            <td>Budi</td>
+                        </tr>
+                        <tr>
+                            <th>Jenis Kelamin</th>
+                            <td>Laki-laki</td>
+                        </tr>
+                        <tr>
+                            <th>NISN</th>
+                            <td>567890123</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td><i class="bi bi-check-circle text-success"></i></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Donatur Modal -->
+    <div class="modal fade" id="donaturModal" tabindex="-1" aria-labelledby="donaturModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donaturModalLabel">Profil Lengkap Donatur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <td>Ilhamudin Armayin</td>
+                        </tr>
+                        <tr>
+                            <th>Jumlah Donasi</th>
+                            <td>Rp10.000.000</td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal Donasi</th>
+                            <td>12/12/2024</td>
+                        </tr>
+                        <tr>
+                            <th>Jenis Donasi</th>
+                            <td>Cash</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td><i class="bi bi-check-circle text-success"></i></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tidak Lanjut Modal -->
+    <div class="modal fade" id="tidakLanjutModal" tabindex="-1" aria-labelledby="tidakLanjutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tidakLanjutModalLabel">Profil Lengkap Tidak Lanjut</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>NIK</th>
+                            <td>453463636</td>
+                        </tr>
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <td>Ilhamudin Armayin</td>
+                        </tr>
+                        <tr>
+                            <th>Nama Panggilan</th>
+                            <td>Ilham</td>
+                        </tr>
+                        <tr>
+                            <th>Jenis Kelamin</th>
+                            <td>Laki-laki</td>
+                        </tr>
+                        <tr>
+                            <th>NISN</th>
+                            <td>453463636</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td><i class="bi bi-x-circle text-danger"></i></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection

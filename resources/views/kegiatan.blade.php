@@ -17,8 +17,8 @@
                                 <p class="card-text mb-2">Mulai pada: 15/04/2023</p>
                                 <p class="card-text">Berakhir pada: 16/04/2023</p>
                             </div> 
-                            <a href="#" class="btn btn-danger">
-                                <i></i> Kunjungi Laman
+                            <a href="#" class="btn btn-danger space-btn">
+                                <i class="bi bi-youtube"></i> Kunjungi Laman
                             </a>
                         </div>
                     </div>
@@ -33,8 +33,8 @@
                                 <p class="card-text mb-2">Mulai pada: 15/04/2023</p>
                                 <p class="card-text">Berakhir pada: 16/04/2023</p>
                             </div> 
-                            <a href="#" class="btn btn-danger">
-                                <i class="bi bi-youtube"></i> Tonton di Youtube
+                            <a href="#" class="btn btn-danger space-btn">
+                                <i class="bi bi-youtube"></i> Kunjungi Laman
                             </a>
                         </div>
                     </div>
@@ -49,8 +49,8 @@
                                 <p class="card-text mb-2">Mulai pada: 15/04/2023</p>
                                 <p class="card-text">Berakhir pada: 16/04/2023</p>
                             </div>
-                            <a href="#" class="btn btn-danger">
-                                <i class="bi bi-youtube"></i> Tonton di Youtube
+                            <a href="#" class="btn btn-danger space-btn">
+                                <i class="bi bi-youtube"></i> Kunjungi Laman
                             </a>
                         </div>
                     </div>

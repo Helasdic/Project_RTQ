@@ -10,7 +10,7 @@ class Admin extends Authenticatable // Admin menggunakan autentikasi
 {
     use HasFactory;
 
-    protected $table = 'admins'; // Nama tabel
+    protected $table = 'admin'; // Nama tabel
     protected $fillable = [
         'name',
         'email',

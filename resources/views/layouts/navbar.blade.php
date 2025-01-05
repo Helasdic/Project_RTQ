@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">RTQ</a>
+      <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="img-fluid rounded" style="width: 5%">
+      <a class="navbar-brand" href="#"></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -34,7 +35,7 @@
             <a href="https://youtube.com" class="text-dark" target="_blank">
                 <i class="bi bi-youtube"></i>
             </a>
-            <a href="{{route('daftar')}}" class="btn btn-primary ms-4">Daftar</a>
+            <a href="{{route('daftar')}}" class="btn btn-success ms-4">Daftar</a>
         </div>
       </div>
     </div>

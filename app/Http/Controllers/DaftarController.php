@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< Updated upstream
 use App\Models\Siswa;
+=======
+use illuminate\Support\Facades\DB;
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;

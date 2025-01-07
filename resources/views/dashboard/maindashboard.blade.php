@@ -61,7 +61,7 @@
                                 <th>Nama Lengkap</th>
                                 <th>Nama Panggilan</th>
                                 <th>Jenis Kelamin</th>
-                                <th>NO.TELP</th>
+                                {{-- <th>NO.TELP</th> --}}
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -70,17 +70,21 @@
                             @foreach ($siswa as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nik }}</td>
+                                <td>{{ $item->nisn }}</td>
                                 <td>{{ $item->nama_lengkap }}</td>
                                 <td>{{ $item->nama_panggilan }}</td>
                                 <td>{{ $item->jenis_kelamin }}</td>
                                 <td><i class="bi bi-check-circle text-success"></i></td>
-                                <td>
+                                <td class="d-flex align-items-center gap-2">
                                     <!-- Button to trigger modal -->
                                     <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#previewModal">
                                         <i class="bi bi-eye"></i>
                                     </button>
-                                    <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                    <form action="{{ route('siswa.delete', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus siswa ini?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -93,7 +97,6 @@
             <div class="tab-pane fade" id="Santri" role="tabpanel">
                 <div class="d-flex justify-content-between mb-3">
                     <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
-                    <button class="btn btn-success ms-2"><i class="bi bi-plus-circle"></i> Tambah Santri</button>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
@@ -110,19 +113,28 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($siswa as $index => $item)
                             <tr>
-                                <td>1</td>
-                                <td>567890123</td>
-                                <td>Ahmad Budi</td>
-                                <td>Budi</td>
-                                <td>Laki-laki</td>
-                                <td>567890123</td>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $item->nik }}</td>
+                                <td>{{ $item->nama_lengkap }}</td>
+                                <td>{{ $item->nama_panggilan }}</td>
+                                <td>{{ $item->jenis_kelamin }}</td>
+                                <td>{{ $item->nisn }}</td>
                                 <td><i class="bi bi-check-circle text-success"></i></td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#santriModal"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                <td class="d-flex align-items-center gap-2">
+                                    <!-- Button to trigger modal -->
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#previewModal">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <form action="{{ route('siswa.delete', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus siswa ini?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

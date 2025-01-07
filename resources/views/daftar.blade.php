@@ -8,30 +8,30 @@
                     <div class="col-12">
                         <div class="frame-9">
                             <h3 class="primay">Form Pendaftaran</h3>
-                            <form id=formDaftar method="POST" action="{{ route('daftar.store') }}">
+                            <form id=formDaftar method="POST" action="{{ route('daftar.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <h5>Data Peserta Didik</h5>
                                 </div>
                                 <div class="mb-3">
                                     <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="frame-input" id="namaLengkap" aria-describedby="namaLengkap" name="namaLengkap">
+                                    <input type="text" class="frame-input" id="namaLengkap" aria-describedby="namaLengkap" name="namaLengkap" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="namaPanggilan" class="form-label">Nama Panggilan</label>
-                                    <input type="text" class="frame-input" id="namaPanggilan" aria-describedby="namaPanggilan" name="namaPanggilan">
+                                    <input type="text" class="frame-input" id="namaPanggilan" aria-describedby="namaPanggilan" name="namaPanggilan" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
-                                    <select class="frame-input" aria-label="Default select example" id="jenisKelamin" name="jenisKelamin">
-                                        <option selected>- pilih -</option>
+                                    <select class="frame-input" aria-label="Default select example" id="jenisKelamin" name="jenisKelamin" required>
+                                        <option value="">- pilih -</option>
                                         <option value="Laki-Laki">Laki-Laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="tempatLahir" class="form-label">Tempat Lahir</label>
-                                    <input type="text" class="frame-input" id="tempatLahir" aria-describedby="tempatLahir" name="tempatLahir">
+                                    <input type="text" class="frame-input" id="tempatLahir" aria-describedby="tempatLahir" name="tempatLahir" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
@@ -47,15 +47,15 @@
                                             </div>
                                         </div>
                                     </div> --}}
-                                    <input type="date" class="frame-input" id="tanggalLahir" aria-describedby="tanggalLahir" name="tanggalLahir">                                       
+                                    <input type="date" class="frame-input" id="tanggalLahir" aria-describedby="tanggalLahir" name="tanggalLahir" required>                                       
                                 </div>
                                 <div class="mb-3">
                                     <label for="alamatLengkap" class="form-label">Alamat Lengkap</label>
-                                    <textarea class="frame-input" id="alamatLengkap" aria-describedby="alamatLengkap" name="alamatLengkap" rows="4" cols="50"></textarea>
+                                    <textarea class="frame-input" id="alamatLengkap" aria-describedby="alamatLengkap" name="alamatLengkap" rows="4" cols="50" required></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="status" class="form-label">Apakah anda sebelumnya bersekolah ?</label>
-                                    <select class="frame-input" aria-label="Default select example" id="status" name="status">
+                                    <select class="frame-input" aria-label="Default select example" id="status" name="status" required>
                                         <option value="">- pilih -</option>
                                         <option value="Ya">Ya</option>
                                         <option value="Tidak">Tidak</option>
@@ -83,15 +83,15 @@
 
                                 <div class="mb-3">
                                     <label for="nik" class="form-label">NIK</label>
-                                    <input type="number" class="frame-input" id="nik" aria-describedby="nik" name="nik">
+                                    <input type="number" class="frame-input" id="nik" aria-describedby="nik" name="nik" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="anakKe" class="form-label">Anak Ke-</label>
-                                    <input type="number" class="frame-input" id="anakKe" aria-describedby="anakKe" name="anakKe">
+                                    <input type="number" class="frame-input" id="anakKe" aria-describedby="anakKe" name="anakKe" required>
                                 </div>
                                 <div class="mb-4">
                                     <label for="jumlahSaudara" class="form-label">Jumlah Saudara Kandung</label>
-                                    <input type="number" class="frame-input" id="jumlahSaudara" aria-describedby="jumlahSaudara" name="jumlahSaudara">
+                                    <input type="number" class="frame-input" id="jumlahSaudara" aria-describedby="jumlahSaudara" name="jumlahSaudara" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -99,44 +99,45 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="namaAyah" class="form-label">Nama Ayah/Wali</label>
-                                    <input type="text" class="frame-input" id="namaAyah" aria-describedby="namaAyah" name="namaAyah">
+                                    <input type="text" class="frame-input" id="namaAyah" aria-describedby="namaAyah" name="namaAyah" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="pekerjaanAyah" class="form-label">Pekerjaan</label>
-                                    <input type="text" class="frame-input" id="pekerjaanAyah" aria-describedby="pekerjaanAyah" name="pekerjaanAyah">
+                                    <input type="text" class="frame-input" id="pekerjaanAyah" aria-describedby="pekerjaanAyah" name="pekerjaanAyah" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="pendidikanAyah" class="form-label">Pendidikan</label>
-                                    <input type="text" class="frame-input" id="pendidikanAyah" aria-describedby="pendidikanAyah" name="pendidikanAyah">
+                                    <input type="text" class="frame-input" id="pendidikanAyah" aria-describedby="pendidikanAyah" name="pendidikanAyah" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="alamatAyah" class="form-label">Alamat Lengkap</label>
-                                    <textarea class="frame-input" id="alamatAyah" aria-describedby="alamatAyah" name="alamatAyah" rows="4" cols="50"></textarea>
+                                    <textarea class="frame-input" id="alamatAyah" aria-describedby="alamatAyah" name="alamatAyah" rows="4" cols="50" required></textarea>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="namaibu" class="form-label">Nama Ibu</label>
-                                    <input type="text" class="frame-input" id="namaIbu" aria-describedby="namaIbu" name="namaIbu">
+                                    <input type="text" class="frame-input" id="namaIbu" aria-describedby="namaIbu" name="namaIbu" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="pekerjaanIbu" class="form-label">Pekerjaan</label>
-                                    <input type="text" class="frame-input" id="pekerjaanIbu" aria-describedby="pekerjaanIbu" name="pekerjaanIbu">
+                                    <input type="text" class="frame-input" id="pekerjaanIbu" aria-describedby="pekerjaanIbu" name="pekerjaanIbu" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="pendidikanIbu" class="form-label">Pendidikan</label>
-                                    <input type="text" class="frame-input" id="pendidikanIbu" aria-describedby="pendidikanIbu" name="pendidikanIbu">
+                                    <input type="text" class="frame-input" id="pendidikanIbu" aria-describedby="pendidikanIbu" name="pendidikanIbu" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="alamatIbu" class="form-label">Alamat Lengkap</label>
-                                    <textarea class="frame-input" id="alamatIbu" aria-describedby="alamatIbu" name="alamatIbu" rows="4" cols="50"></textarea>
+                                    <textarea class="frame-input" id="alamatIbu" aria-describedby="alamatIbu" name="alamatIbu" rows="4" cols="50" required></textarea>
                                 </div>
+                                    
                                 <div class="mb-3">
                                     <label for="kartuKeluarga" class="form-label">Upload Kartu Keluarga (KK)</label> 
-                                    <input type="file" class="frame-input" id="kartuKeluarga" name="kartuKeluarga">
+                                    <input type="file" class="frame-input" id="kartuKeluarga" name="kartuKeluarga" accept=".jpg, .jpeg, .png, .svg, .pdf" required>
                                 </div>
-                                <div class="mb-5">
+                                <div class="mb-5">  
                                     <label for="aktaKelahiran" class="form-label">Upload Akta Kelahiran</label> 
-                                    <input type="file" class="frame-input" id="aktaKelahiran" name="aktaKelahiran">
+                                    <input type="file" class="frame-input" id="aktaKelahiran" name="aktaKelahiran" accept=".jpg, .jpeg, .png, .svg, .pdf" required>
                                 </div>
 
                                 {{-- <div class="mb-3">
@@ -237,9 +238,6 @@
         });
 
         $(function(){
-            // $("#tanggalLahir1").datepicker({
-            //     dateFormat: 'yy-mm-dd' // Format YYYY-MM-DD
-            // });
             $("#formDaftar").submit(function(e){  
                 e.preventDefault();
                 Swal.fire({

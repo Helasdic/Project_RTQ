@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <main class="container py-4">
@@ -221,18 +221,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Pak Sujud</td>
-                                <td>ahlisujud@gmail.com</td>
-                                <td>yang sudah, boleh pulang</td>
+                            @foreach ($getFeedback as $feedback )
+                                <tr>
+                                <td>{{$loop -> iteration + $getFeedback->firstItem()-1 }}</td>
+                                <td>{{$feedback -> nama}}</td>
+                                <td>{{$feedback -> email}}</td>
+                                <td>{{$feedback -> pesan}}</td>
                             </tr>
+                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </main>
+
     <!-- Modal -->
     <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -278,128 +282,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Santri Modal -->
-    <div class="modal fade" id="santriModal" tabindex="-1" aria-labelledby="santriModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="santriModalLabel">Profil Lengkap Santri</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>NIK</th>
-                            <td>567890123</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Lengkap</th>
-                            <td>Ahmad Budi</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Panggilan</th>
-                            <td>Budi</td>
-                        </tr>
-                        <tr>
-                            <th>Jenis Kelamin</th>
-                            <td>Laki-laki</td>
-                        </tr>
-                        <tr>
-                            <th>NISN</th>
-                            <td>567890123</td>
-                        </tr>
-                        <tr>
-                            <th>Status</th>
-                            <td><i class="bi bi-check-circle text-success"></i></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Donatur Modal -->
-    <div class="modal fade" id="donaturModal" tabindex="-1" aria-labelledby="donaturModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="donaturModalLabel">Profil Lengkap Donatur</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>Nama Lengkap</th>
-                            <td>Ilhamudin Armayin</td>
-                        </tr>
-                        <tr>
-                            <th>Jumlah Donasi</th>
-                            <td>Rp10.000.000</td>
-                        </tr>
-                        <tr>
-                            <th>Tanggal Donasi</th>
-                            <td>12/12/2024</td>
-                        </tr>
-                        <tr>
-                            <th>Jenis Donasi</th>
-                            <td>Cash</td>
-                        </tr>
-                        <tr>
-                            <th>Status</th>
-                            <td><i class="bi bi-check-circle text-success"></i></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Tidak Lanjut Modal -->
-    <div class="modal fade" id="tidakLanjutModal" tabindex="-1" aria-labelledby="tidakLanjutModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tidakLanjutModalLabel">Profil Lengkap Tidak Lanjut</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>NIK</th>
-                            <td>453463636</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Lengkap</th>
-                            <td>Ilhamudin Armayin</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Panggilan</th>
-                            <td>Ilham</td>
-                        </tr>
-                        <tr>
-                            <th>Jenis Kelamin</th>
-                            <td>Laki-laki</td>
-                        </tr>
-                        <tr>
-                            <th>NISN</th>
-                            <td>453463636</td>
-                        </tr>
-                        <tr>
-                            <th>Status</th>
-                            <td><i class="bi bi-x-circle text-danger"></i></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </div> 
 @endsection

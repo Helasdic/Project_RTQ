@@ -18,6 +18,18 @@ h1, h2, h3, h4, h5, h6{
   cursor: pointer;
 }
 
+.icon-btn{
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-indent: -9999px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .space-btn{
   border-radius: var(--shape-corner-small) !important;
   display: inline-flex !important;

@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kegiatan', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kegiatan');
-            $table->string('link')->nullable(); // Opsional
-            $table->date('tanggal_mulai');
-            $table->date('tanggal_selesai');
-            $table->string('foto_kegiatan')->nullable(); // URL atau path untuk foto kegiatan
+            $table->string('nama');
+            $table->string('email');
+            $table->text('pesan');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kegiatan');
+        Schema::dropIfExists('table_feedback');
     }
 };

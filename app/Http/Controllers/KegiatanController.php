@@ -55,8 +55,8 @@ class KegiatanController extends Controller
                     $folderPath = "public/kegiatan/";
                     $request -> file('fotoKegiatan') -> storeAs($folderPath, $foto_kegiatan);
                 }
-                return Redirect::back()->with(['success' => 'Data Berhasil Disimpan']);
             }
+            return Redirect::back()->with(['success' => 'Data Berhasil Disimpan']);
         } catch (\Exception $e) {
             // dd($e);
             return Redirect::back()->with(['warning'=> 'Data Gagal Disimpan'.$e->getMessage()]);

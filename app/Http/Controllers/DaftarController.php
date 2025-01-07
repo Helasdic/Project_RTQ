@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< Updated upstream
+use App\Models\Sekolah;
 use App\Models\Siswa;
-=======
+use App\Models\WaliSiswa;
 use illuminate\Support\Facades\DB;
->>>>>>> Stashed changes
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\DB;
 
 class DaftarController extends Controller
 {
@@ -76,8 +74,8 @@ class DaftarController extends Controller
                 'kartu_keluarga' => $kk,
                 'akta_kelahiran' => $akta
             ];
-            // $siswa = Siswa::create($data_siswa);
-            $simpan_data_siswa = DB::table('siswa')->insert($data_siswa);
+            $simpan_data_siswa = Siswa::create($data_siswa);
+            // $simpan_data_siswa = DB::table('siswa')->insert($data_siswa);
             // dd($simpan_data_siswa);
 
             if($simpan_data_siswa){
@@ -100,7 +98,7 @@ class DaftarController extends Controller
                 'nisn' => $nisn,
                 'npsn' => $npsn
             ];
-            $simpan_data_sekolah = DB::table('sekolah')->insert($data_sekolah);
+            $simpan_data_sekolah = Sekolah::create($data_sekolah);
 
             // Simpan data orang tua ke database
             $data_orangtua = [
@@ -114,7 +112,7 @@ class DaftarController extends Controller
                 'pendidikan_ibu' => $pendidikan_ibu,
                 'alamat_ibu' => $alamat_ibu
             ];
-            $simpan_data_orangtua = DB::table('wali_siswa')->insert($data_orangtua);
+            $simpan_data_orangtua = WaliSiswa::create($data_orangtua);
 
             return Redirect::back()->with('success', 'Data Berhasil Disimpan');
 

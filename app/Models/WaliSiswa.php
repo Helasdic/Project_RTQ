@@ -11,6 +11,18 @@ class WaliSiswa extends Model
 
     protected $table = 'wali_siswa'; // Nama tabel
 
+    protected $fillable = [
+        'nik_siswa',
+        'nama_ayah',
+        'pekerjaan_ayah',
+        'pendidikan_ayah',
+        'alamat_ayah',
+        'nama_ibu',
+        'pekerjaan_ibu',
+        'pendidikan_ibu',
+        'alamat_ibu'
+    ];
+
     public function siswa() {
         return $this->hasMany(Siswa::class, 'id_wali'); // Tetap hasMany
     }

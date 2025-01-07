@@ -67,13 +67,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($siswa as $index => $item)
                             <tr>
-                                <td>1</td>
-                                <td>453463636</td>
-                                <td>Ilhamudin Armayin</td>
-                                <td>Ilham</td>
-                                <td>Laki-laki</td>
-                                <td>081310691612</td>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $item->nik }}</td>
+                                <td>{{ $item->nama_lengkap }}</td>
+                                <td>{{ $item->nama_panggilan }}</td>
+                                <td>{{ $item->jenis_kelamin }}</td>
                                 <td><i class="bi bi-check-circle text-success"></i></td>
                                 <td>
                                     <!-- Button to trigger modal -->
@@ -83,6 +83,7 @@
                                     <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

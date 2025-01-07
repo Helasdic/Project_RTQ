@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,34 +18,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//untuk login
-//Session untuk login admin
-Route::middleware(['guest:admin']) -> group(function () {
+//untuk Guest
+Route::middleware(['guest']) -> group(function () {
+
+    //Halaman Pendaftaran
+    Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
+    Route::post('daftar/store', [DaftarController::class, 'store'])->name('daftar.store');
+    
+    //Halaman Kegiatan
+    Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
+
+    //landing page atau home
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('/feedback/store', [HomeController::class, 'storeFeedback'])->name('feedback.store');
+
+    //login
     Route::get('/login', function () {
         return view('login');
     })->name('login');
     Route::post('/loginrequest', [AuthController::class, 'loginrequest']);
+    
 });
 
+//untuk Auth
 Route::middleware(['auth:admin'])-> group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.maindashboard');
-    })->name('dashboard');
+
+    //dashboard admin
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    //admin kegiatan
+    Route::get('/admin/kegiatan', [KegiatanController::class, 'adminIndex'])->name('admin.kegiatan');
+    Route::post('/admin/kegiatan/store', [KegiatanController::class, 'storeKegiatan'])->name('admin.storeKegiatan');
+    Route::post('/admin/kegiatan/edit', [KegiatanController::class, 'editFormKegiatan'])->name('admin.editFormKegiatan');
+    Route::post('/admin/kegiatan/{id}/edit', [KegiatanController::class, 'editKegiatan'])->name('admin.editKegiatan');
+    Route::post('/admin/kegiatan/{id}/delete', [KegiatanController::class, 'deleteKegiatan'])->name('admin.deleteKegiatan');
+
+    //logout
+    Route::get('/logout', [AuthController::class, 'logoutrequest'])->name('logout');
 });
 
-
-// Route untuk halaman home
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
-Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
-// Route::get('/login', [AuthController::class, 'index'])->name('login');
-
-//Daftar
-Route::post('daftar/store', [DaftarController::class, 'store'])->name('daftar.store');
-
-Route::get('/kegiatan', function () {
-    return view('kegiatan');
-})->name('kegiatan');

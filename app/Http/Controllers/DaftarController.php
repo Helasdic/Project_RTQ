@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class DaftarController extends Controller
 {
@@ -23,6 +24,7 @@ class DaftarController extends Controller
         $nik = $request->input('nik');
         $anak_ke = $request->input('anakKe');
         $jumlah_saudara_kandung = $request->input('jumlahSaudara');
+        // dd($request->all());
         
         $asal_sekolah = $request->input('asalSekolah');
         $alamat_sekolah = $request->input('alamatSekolah');
@@ -39,7 +41,22 @@ class DaftarController extends Controller
         $pendidikan_ibu = $request->input('pendidikanIbu');
         $alamat_ibu = $request->input('alamatIbu');
 
-        // dd($request->all());
+        $kutip = array(' ', '"', "'", '-', '/', '(', ')', '.', ',', ':', ';', '?', '!', '@', '#', '$', '%', '^', '&', '*', '=', '+', '|', '~', '`', '{', '}', '[', ']', '<', '>', '/', '\\', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        $ganti = "_";
+        $nama_kecil = strtolower($nama_lengkap);
+        $nama_lengkap_baru = str_replace($kutip, $ganti, $nama_kecil);
+
+        // dd($request->file('kartuKeluarga'));
+        $kk = '-';
+        if($request->hasFile('kartuKeluarga')){
+            $kk = "kk_".$nama_lengkap_baru.time().".".$request->file('kartuKeluarga')->getClientOriginalExtension();
+        }
+
+        $akta = '-';
+        if($request->hasFile('aktaKelahiran')){
+            $akta = "akta_".$nama_lengkap_baru.time().".".$request->file('aktaKelahiran')->getClientOriginalExtension();
+        }
+        
         try {
             // Simpan data siswa ke database
             $data_siswa = [
@@ -51,10 +68,25 @@ class DaftarController extends Controller
                 'alamat_lengkap' => $alamat_lengkap,
                 'nik' => $nik,
                 'anak_ke' => $anak_ke,
-                'jumlah_saudara_kandung' => $jumlah_saudara_kandung
+                'jumlah_saudara_kandung' => $jumlah_saudara_kandung,
+                'kartu_keluarga' => $kk,
+                'akta_kelahiran' => $akta
             ];
+            // $siswa = Siswa::create($data_siswa);
             $simpan_data_siswa = DB::table('siswa')->insert($data_siswa);
             // dd($simpan_data_siswa);
+
+            if($simpan_data_siswa){
+                if($request -> hasFile('kartuKeluarga')){
+                    $folderPath = "public/kartu_keluarga/";
+                    $request -> file('kartuKeluarga') -> storeAs($folderPath, $kk);
+                }
+
+                if($request -> hasFile('aktaKelahiran')){
+                    $folderPath = "public/akta_kelahiran/";
+                    $request -> file('aktaKelahiran') -> storeAs($folderPath, $akta);
+                }
+            }
 
             // Simpan data sekolah ke database
             $data_sekolah = [
@@ -79,7 +111,9 @@ class DaftarController extends Controller
                 'alamat_ibu' => $alamat_ibu
             ];
             $simpan_data_orangtua = DB::table('wali_siswa')->insert($data_orangtua);
-            
+
+            return Redirect::back()->with('success', 'Data Berhasil Disimpan');
+
         } catch (\Exception $e) {
             // Log error untuk debugging
             // Log::error('Gagal menyimpan aplikasi: ' . $e->getMessage());

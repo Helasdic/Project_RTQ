@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <main class="container py-4">
@@ -222,18 +222,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Pak Sujud</td>
-                                <td>ahlisujud@gmail.com</td>
-                                <td>yang sudah, boleh pulang</td>
+                            @foreach ($getFeedback as $feedback )
+                                <tr>
+                                <td>{{$loop -> iteration + $getFeedback->firstItem()-1 }}</td>
+                                <td>{{$feedback -> nama}}</td>
+                                <td>{{$feedback -> email}}</td>
+                                <td>{{$feedback -> pesan}}</td>
                             </tr>
+                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </main>
+
     <!-- Modal -->
     <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -279,5 +283,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 @endsection

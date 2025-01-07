@@ -24,6 +24,8 @@ return new class extends Migration
             $table->text('nik');
             $table->integer('anak_ke');
             $table->integer('jumlah_saudara_kandung');
+            $table->string('kartu_keluarga');
+            $table->string('akta_kelahiran');
             $table->timestamps();
         });
     }

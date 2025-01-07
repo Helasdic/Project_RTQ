@@ -291,7 +291,7 @@
     </section>
 
     <!-- Section Feedback -->
-    <section class="bg-light py-5">
+    <section class="bg-light py-5" id="feedback-form">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Feedback Text -->
@@ -308,7 +308,7 @@
                 <!-- Feedback Form -->
                 <div class="col-md-6">
                     <div class="p-4 shadow-sm bg-white rounded">
-                        <form action="" method="POST">
+                        <form action="{{route('feedback.store')}}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nama</label>

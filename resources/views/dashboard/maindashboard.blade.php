@@ -118,7 +118,7 @@
                                 <td>567890123</td>
                                 <td><i class="bi bi-check-circle text-success"></i></td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#santriModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
@@ -153,7 +153,7 @@
                                 <td>12/12/2024</td>
                                 <td>Cash</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#donaturModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-secondary btn-sm"><i class="bi bi-three-dots"></i></button>
                                 </td>
                             </tr>
@@ -164,11 +164,10 @@
                                 <td>12/12/2024</td>
                                 <td>Cash</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#donaturModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-secondary btn-sm"><i class="bi bi-three-dots"></i></button>
                                 </td>
                             </tr>
-                            <!-- Tambahkan data lainnya sesuai kebutuhan -->
                         </tbody>
                     </table>
                 </div>
@@ -200,7 +199,7 @@
                                 <td>453463636</td>
                                 <td><i class="bi bi-x-circle text-danger"></i></td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#tidakLanjutModal"><i class="bi bi-eye"></i></button>
                                     <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>

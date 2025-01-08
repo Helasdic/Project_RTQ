@@ -26,10 +26,10 @@ class Siswa extends Model
     ];
 
     public function sekolah() {
-        return $this->belongsTo(Sekolah::class, 'id_siswa', 'id');
+        return $this->belongsTo(Sekolah::class, 'nik', 'nik_siswa');
     }
     
     public function walisiswa() {
-        return $this->belongsTo(Walisiswa::class, 'id_siswa','id');
+        return $this->belongsTo(Walisiswa::class, 'nik','nik_siswa');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donatur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -9,7 +10,9 @@ use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
     public function index(){
-        return view('home');
+        $getDonatur = Donatur::all();
+
+        return view('home', compact('getDonatur') );
     }
 
     public function storeFeedback(Request $request){
@@ -26,7 +29,11 @@ class HomeController extends Controller
 
             $simpan = DB::table('feedback')->insert($data);
 
-            return Redirect::back()->with(['success'=> 'Data Berhasil Disimpan']);
+            if($simpan){
+                return Redirect::back()->with(['success'=> 'Data Berhasil Disimpan']);
+            }else{
+                return Redirect::back()->with(['error'=> 'Data Gagal Disimpan']);
+            }
         } catch(\Exception $e) {
             // dd($e);
             return Redirect::back()->with(['warning'=> 'Data Gagal Disimpan'.$e->getMessage()]);

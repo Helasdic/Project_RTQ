@@ -49,6 +49,9 @@ Route::middleware(['auth:admin'])-> group(function () {
     Route::delete('/dashboard/siswa/{id}', [DashboardController::class, 'deleteSiswa'])->name('siswa.delete');
 
 
+    //dashboard admin donatur
+    Route::post('/admin/donatur/store', [DashboardController::class, 'storeDonatur'])->name('admin.storeDonatur');
+
     //admin kegiatan
     Route::get('/admin/kegiatan', [KegiatanController::class, 'adminIndex'])->name('admin.kegiatan');
     Route::post('/admin/kegiatan/store', [KegiatanController::class, 'storeKegiatan'])->name('admin.storeKegiatan');

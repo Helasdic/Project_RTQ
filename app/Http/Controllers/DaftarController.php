@@ -49,12 +49,12 @@ class DaftarController extends Controller
         // dd($request->file('kartuKeluarga'));
         $kk = '-';
         if($request->hasFile('kartuKeluarga')){
-            $kk = "kk_".$nama_lengkap_baru.time().".".$request->file('kartuKeluarga')->getClientOriginalExtension();
+            $kk = "kk_".$nama_lengkap_baru."_".time().".".$request->file('kartuKeluarga')->getClientOriginalExtension();
         }
 
         $akta = '-';
         if($request->hasFile('aktaKelahiran')){
-            $akta = "akta_".$nama_lengkap_baru.time().".".$request->file('aktaKelahiran')->getClientOriginalExtension();
+            $akta = "akta_".$nama_lengkap_baru."_".time().".".$request->file('aktaKelahiran')->getClientOriginalExtension();
         }
         
         try {

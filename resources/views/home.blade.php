@@ -229,63 +229,12 @@
         <div class="container">
             <h2 class="text-center mb-5">Para Donatur</h2>
             <div class="d-flex flex-wrap justify-content-center">
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
-                <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
-                    <i class="bi bi-person-circle text-warning me-2"></i> Yanto Widyatmoko
-                </div>
+                @foreach ($getDonatur as $donatur)
+                    <div class="badge bg-light text-dark border rounded-pill shadow-sm py-2 px-4 m-2 d-flex align-items-center">
+                        <i class="bi bi-person-circle text-warning me-2"></i> {{$donatur->nama_donatur}}
+                    </div>
+                @endforeach
+                
             </div>
         </div>
     </section>

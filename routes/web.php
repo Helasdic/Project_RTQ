@@ -46,6 +46,9 @@ Route::middleware(['auth:admin'])-> group(function () {
     //dashboard admin
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    //dashboard admin donatur
+    Route::post('/admin/donatur/store', [DashboardController::class, 'storeDonatur'])->name('admin.storeDonatur');
+
     //admin kegiatan
     Route::get('/admin/kegiatan', [KegiatanController::class, 'adminIndex'])->name('admin.kegiatan');
     Route::post('/admin/kegiatan/store', [KegiatanController::class, 'storeKegiatan'])->name('admin.storeKegiatan');

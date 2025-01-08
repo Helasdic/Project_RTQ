@@ -16,7 +16,7 @@
                     <a href="{{route('daftar')}}" class="btn btn-light fw-bold px-4">Daftar Sekarang</a>
                 </div>
                 <div>
-                    <a href="https://maps.app.goo.gl/mct7kbtpwKG9s5qt9" class="text-white">RTQ. Alif Laam Miim Pekayon Gg. H. Tabrih No.15-16 Rt/Rw 003/022 Kel. Pekayon Jaya Kec. Bekasi Selatan 17148</a>
+                    <a href="https://maps.app.goo.gl/mct7kbtpwKG9s5qt9" target="_blank" class="text-white">RTQ. Alif Laam Miim Pekayon Gg. H. Tabrih No.15-16 Rt/Rw 003/022 Kel. Pekayon Jaya Kec. Bekasi Selatan 17148</a>
                 </div>
                 <div class="text-white">
                     <p class="mb-0">Informasi Pendaftaran: <span class="fw-bold">+6281224511538</span></p>

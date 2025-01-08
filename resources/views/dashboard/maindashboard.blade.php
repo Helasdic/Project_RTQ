@@ -60,9 +60,9 @@
             <div class="tab-pane fade show active" id="pendaftar" role="tabpanel">
                 <div class="d-flex justify-content-between mb-3">
                     <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
-                    <button class="btn btn-success ms-2" onclick="window.location.href='{{ route('daftar') }}'">
-                        <i class="bi bi-plus-circle"></i> Tambah Pendaftar
-                    </button>                    
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahPendaftarModal">
+                        Tambah Pendaftar
+                    </button>                                    
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
@@ -80,14 +80,15 @@
                         </thead>
                         <tbody>
                             @foreach ($getPendaftar as $index => $item)
+                            @foreach ($getPendaftar as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nisn }}</td>
+                                <td>{{ $item->sekolah?->nisn ?? '-' }}</td>
                                 <td>{{ $item->nama_lengkap }}</td>
                                 <td>{{ $item->nama_panggilan }}</td>
                                 <td>{{ $item->jenis_kelamin }}</td>
                                 <td><i class="bi bi-check-circle text-success"></i></td>
-                                <td class="d-flex align-items-center gap-2">
+                                <td class="d-flex align-items-center gap-3 justify-content-center">
                                     <!-- Button to trigger modal -->
                                     <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#previewModal">
                                         <i class="bi bi-eye"></i>
@@ -97,6 +98,7 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                                     </form>
+                                    <button class="btn btn-primary btn-sm"><i class="bi bi-three-dots-vertical"></i></button>
                                 </td>
                             </tr>
                             @endforeach
@@ -126,13 +128,14 @@
                         </thead>
                         <tbody>
                             @foreach ($getPendaftar as $index => $item)
+                            @foreach ($getPendaftar as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nik }}</td>
                                 <td>{{ $item->nama_lengkap }}</td>
                                 <td>{{ $item->nama_panggilan }}</td>
                                 <td>{{ $item->jenis_kelamin }}</td>
-                                <td>{{ $item->nisn }}</td>
+                                <td>{{ $item->sekolah?->nisn ?? '-' }}</td>
                                 <td><i class="bi bi-check-circle text-success"></i></td>
                                 <td class="d-flex align-items-center gap-2">
                                     <!-- Button to trigger modal -->

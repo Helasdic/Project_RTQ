@@ -15,17 +15,21 @@ class DashboardController extends Controller
 {
     public function index(){
 
-        $siswa = Siswa::paginate(10);
         ///get data feedback dan menampilkan 20 data per halamannya
         $getFeedback = Feedback::paginate(20);
         $getDonatur = Donatur::paginate(20);
         $getPendaftar = Siswa::with(['walisiswa','sekolah'])->paginate(20);
 
-        // dd($getPendaftar);
+        // dd($getDonatur);
 
-        return view('dashboard.maindashboard', compact('getFeedback', 'getDonatur', 'getPendaftar', 'siswa'));
+        return view('dashboard.maindashboard', compact('getFeedback', 'getDonatur', 'getPendaftar'));
     }
 
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////Controller Donatur////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function storeDonatur(Request $request){
         $nama = $request->input('namaDonatur');
         $jenisKelamin = $request->input('jenisKelaminDonatur');
@@ -73,6 +77,16 @@ class DashboardController extends Controller
             // dd($e);
             return Redirect::back()->with(['warning'=> 'Data Gagal Disimpan'.$e->getMessage()]);
         }
+    }
+
+    public function viewDonatur(Request $request){
+        $id = $request->input('id');
+
+        $getDonatur = Donatur::find($id);
+
+        // dd($getKegiatan);
+
+        return view('dashboard.modal_donatur.viewDonatur', compact('getDonatur'));
     }
 
     public function deleteSiswa($id){

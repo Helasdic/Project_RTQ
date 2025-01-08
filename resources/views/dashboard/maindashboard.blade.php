@@ -79,7 +79,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($siswa as $index => $item)
+                            @foreach ($getPendaftar as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nisn }}</td>
@@ -125,7 +125,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($siswa as $index => $item)
+                            @foreach ($getPendaftar as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nik }}</td>
@@ -188,41 +188,7 @@
             </div>
 
             <!-- Donatur Tab -->
-            <div class="tab-pane fade" id="donatur" role="tabpanel">
-                <div class="d-flex justify-content-between mb-3">
-                    <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
-                    <button id="add_donatur" class="btn btn-success ms-2"><i class="bi bi-plus-circle"></i> Tambah Donatur</button>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead class="table-success">
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama Lengkap</th>
-                                <th>Jumlah Donasi</th>
-                                <th>Tanggal Donasi</th>
-                                <th>Jenis Donasi</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($getDonatur as $donatur )
-                                <tr>
-                                    <td>{{$loop -> iteration + $getDonatur->firstItem()-1 }}</td>
-                                    <td>{{$donatur -> nama_donatur}}</td>
-                                    <td>Rp. {{$donatur -> nominal_donasi}}</td>
-                                    <td>{{date('d/m/Y', strtotime($donatur -> tanggal_donasi))}}</td>
-                                    <td>{{$donatur -> jenis_donasi}}</td>
-                                    <td>
-                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#donaturModal"><i class="bi bi-eye"></i></button>
-                                        <button class="btn btn-secondary btn-sm"><i class="bi bi-three-dots"></i></button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>  
+            @include('dashboard.modal_donatur.donatur')  
 
             <!-- Feedback Tab -->
             <div class="tab-pane fade" id="feedback" role="tabpanel">
@@ -265,31 +231,35 @@
                     <table class="table table-borderless">
                         <tr>
                             <th>NISN</th>
-                            <td>453463636</td>
+                            <td>: 453463636</td>
                         </tr>
                         <tr>
                             <th>Nama Lengkap</th>
-                            <td>Ilhamudin Armayin</td>
+                            <td>: Ilhamudin Armayin</td>
                         </tr>
                         <tr>
                             <th>Nama Panggilan</th>
-                            <td>Ilham</td>
+                            <td>: Ilham</td>
                         </tr>
                         <tr>
                             <th>Jenis Kelamin</th>
-                            <td>Laki-laki</td>
+                            <td>: Laki-laki</td>
                         </tr>
                         <tr>
                             <th>No. Telp</th>
-                            <td>081310691612</td>
+                            <td>: 081310691612</td>
                         </tr>
                         <tr>
                             <th>Alamat</th>
-                            <td>Jl. Contoh Alamat No. 123, Jakarta</td>
+                            <td>: Jl. Contoh Alamat No. 123, Jakarta</td>
                         </tr>
                         <tr>
                             <th>Tanggal Lahir</th>
-                            <td>01 Januari 2005</td>
+                            <td>: 01 Januari 2005</td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>: 01 Januari 2005</td>
                         </tr>
                     </table>
                 </div>
@@ -300,68 +270,7 @@
         </div>
     </div>
 
-    <!-- Modal Donatur-->
-    <div class="modal fade" id="modal-addDonatur" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content" style="border-radius: var(--shape-corner-large);">
-                <div class="modal-body">
-                    <div class="container" style="padding: 40px;">
-                        <form id="formDonatur" method="POST" action="{{ route('admin.storeDonatur') }}" enctype="multipart/form-data">
-                            @csrf
-                            <h3 class="primay">Tambahkan Donatur</h3>
-                            <div class="mb-3 mt-4">
-                                <h5>Form Donatur</h5>
-                            </div>
-                            <div class="mb-3">
-                                <label for="namaDonatur" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="frame-input" id="namaDonatur" aria-describedby="namaDonatur" name="namaDonatur" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="jenisKelaminDonatur" class="form-label">Jenis Kelamin</label>
-                                <select class="frame-input" aria-label="Default select example" id="jenisKelaminDonatur" name="jenisKelaminDonatur" required>
-                                    <option value="">- pilih -</option>
-                                    <option value="Laki-Laki">Laki-Laki</option>
-                                    <option value="Perempuan">Perempuan</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="alamatDonatur" class="form-label">Alamat Lengkap</label>
-                                <textarea class="frame-input" id="alamatDonatur" aria-describedby="alamatDonatur" name="alamatDonatur" rows="4" cols="50" required></textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="tanggalDonasi" class="form-label">Tanggal Donasi</label>
-                                <input type="date" class="frame-input" id="tanggalDonasi" aria-describedby="tanggalDonasi" name="tanggalDonasi" required>                                       
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="nominalDonasi" class="form-label">Nominal Donasi</label>
-                                <input type="number" class="frame-input" id="nominalDonasi" aria-describedby="nominalDonasi" name="nominalDonasi" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="jenisDonasi" class="form-label">Jenis Donasi</label>
-                                <select class="frame-input" aria-label="Default select example" id="jenisDonasi" name="jenisDonasi" required>
-                                    <option value="">- pilih -</option>
-                                    <option value="Tunai">Tunai</option>
-                                    <option value="Non-Tunai">Non Tunai</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="fotoDonasi" class="form-label">Thumbnail/Foto Kegiatan</label> 
-                                <input type="file" class="frame-input" id="fotoDonasi" name="fotoDonasi" accept=".jpg, .jpeg, .png, .svg" max-size="2097152">
-                            </div>
-
-                            <button type="submit" id="kirim" name="kirim" class="btn w-100 mt-3 kirim" style="background-color: var(--primay-2); color: var(--white-1);">
-                                <i class="fa fa-send-o"></i> Kirim
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('dashboard.modal_donatur.addDonatur')
 @endsection
 
 @push('myscript')
@@ -369,6 +278,30 @@
         $(function(){
             $("#add_donatur").click(function(){
                 $("#modal-addDonatur").modal("show");
+            });
+
+            $(".view_donatur").click(function(){
+                var id = $(this).attr('kode');
+                // console.log(id);
+
+                $.ajax({
+                    type: 'POST',
+                    url : '{{route('admin.viewDonatur')}}',
+                    cache : false,
+                    data : {
+                        _token : "{{ csrf_token() }}",
+                        id : id
+                    },
+                    success: function(respond){
+                        $("#loadViewDonatur").html(respond);
+                    }
+                });
+
+                $("#modal-viewDonatur").modal("show");
+            });
+
+            $("#close-view").click(function(){
+                $("#modal-viewDonatur").modal("hide");
             });
         });
     </script>

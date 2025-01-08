@@ -21,6 +21,8 @@ class Siswa extends Model
         'nik',
         'anak_ke',
         'jumlah_saudara_kandung',
+        'kartu_keluarga',
+        'akta_kelahiran'
     ];
 
     public function sekolah() {

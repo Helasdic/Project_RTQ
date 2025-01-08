@@ -15,6 +15,7 @@ class DashboardController extends Controller
 {
     public function index(){
 
+        $siswa = Siswa::paginate(10);
         ///get data feedback dan menampilkan 20 data per halamannya
         $getFeedback = Feedback::paginate(20);
         $getDonatur = Donatur::paginate(20);
@@ -22,7 +23,7 @@ class DashboardController extends Controller
 
         // dd($getPendaftar);
 
-        return view('dashboard.maindashboard', compact('getFeedback', 'getDonatur', 'getPendaftar'));
+        return view('dashboard.maindashboard', compact('getFeedback', 'getDonatur', 'getPendaftar', 'siswa'));
     }
 
     public function storeDonatur(Request $request){
@@ -73,6 +74,23 @@ class DashboardController extends Controller
             return Redirect::back()->with(['warning'=> 'Data Gagal Disimpan'.$e->getMessage()]);
         }
     }
+
+    public function deleteSiswa($id){
+        try {
+            // Cari siswa berdasarkan ID
+            $siswa = Siswa::findOrFail($id);
+
+            // Hapus data siswa
+            $siswa->delete();
+
+            // Redirect ke halaman dashboard dengan pesan sukses
+            return redirect()->route('dashboard')->with('success', 'Data siswa berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Redirect dengan pesan error jika terjadi kesalahan
+            return redirect()->route('dashboard')->with('error', 'Terjadi kesalahan saat menghapus data siswa.');
+        }
+    }
+
 
 
 }

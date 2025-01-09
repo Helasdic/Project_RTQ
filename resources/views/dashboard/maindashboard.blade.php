@@ -57,61 +57,7 @@
 
         <div class="tab-content mt-4" id="dashboardTabsContent">
             <!-- Pendaftar Tab -->
-            <div class="tab-pane fade show active" id="pendaftar" role="tabpanel">
-                <div class="d-flex justify-content-between mb-3">
-                    <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahPendaftarModal">
-                        Tambah Pendaftar
-                    </button>                                    
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead class="table-success">
-                            <tr>
-                                <th>No.</th>
-                                <th>NISN</th>
-                                <th>Nama Lengkap</th>
-                                <th>Nama Panggilan</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($getPendaftar as $index => $item)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->sekolah?->nisn ?? '-' }}</td>
-                                <td>{{ $item->nama_lengkap }}</td>
-                                <td>{{ $item->nama_panggilan }}</td>
-                                <td>{{ $item->jenis_kelamin }}</td>
-                                <td><i class="bi bi-check-circle text-success"></i></td>
-                                <td class="d-flex align-items-center gap-3 justify-content-center">
-                                    <!-- Button to trigger modal -->
-                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#previewModal">
-                                        <i class="bi bi-eye"></i>
-                                    </button>
-                                    <form action="{{ route('siswa.delete', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus siswa ini?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
-                                    </form>
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                          <i class="bi bi-three-dots-vertical"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          <li><a class="dropdown-item" href="#">Diterima</a></li>
-                                          <li><a class="dropdown-item" href="#">Tidak</a></li>
-                                        </ul>
-                                    </div>                                      
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            @include('dashboard.modal_pendaftar.pendaftar')
 
             <!-- Santri Tab -->
             <div class="tab-pane fade" id="Santri" role="tabpanel">
@@ -227,48 +173,19 @@
         </div>
     </main>
 
-    <!-- Modal View -->
+    <!-- Modal Preview -->
     <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="previewModalLabel">Profil Lengkap Pendaftar</h5>
+                    <h5 class="modal-title" id="previewModalLabel">Preview Data Pendaftar</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-borderless">
-                        <tr>
-                            <th>NISN</th>
-                            <td>: 453463636</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Lengkap</th>
-                            <td>: Ilhamudin Armayin</td>
-                        </tr>
-                        <tr>
-                            <th>Nama Panggilan</th>
-                            <td>: Ilham</td>
-                        </tr>
-                        <tr>
-                            <th>Jenis Kelamin</th>
-                            <td>: Laki-laki</td>
-                        </tr>
-                        <tr>
-                            <th>No. Telp</th>
-                            <td>: 081310691612</td>
-                        </tr>
-                        <tr>
-                            <th>Alamat</th>
-                            <td>: Jl. Contoh Alamat No. 123, Jakarta</td>
-                        </tr>
-                        <tr>
-                            <th>Tanggal Lahir</th>
-                            <td>: 01 Januari 2005</td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>: 01 Januari 2005</td>
-                        </tr>
+                    <table class="table table-striped">
+                        <tbody id="previewContent">
+                            <!-- Data akan dimuat menggunakan JavaScript -->
+                        </tbody>
                     </table>
                 </div>
                 <div class="modal-footer">
@@ -277,6 +194,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Modal Pendaftars-->
     <div class="modal fade" id="tambahPendaftarModal" tabindex="-1" aria-labelledby="tambahPendaftarModalLabel" aria-hidden="true">
@@ -426,6 +344,130 @@
 
 @push('myscript')
     <script>
+        
+        // jquery pendaftar
+        $(function(){
+            // Menampilkan modal tambah pendaftar
+            $("#tambahPendaftarModal").on("show.bs.modal", function(){
+                console.log("Modal tambah pendaftar ditampilkan.");
+            });
+
+            // Tombol ekspor data
+            $(".btn-success:contains('Ekspor')").click(function(){
+                Swal.fire({
+                    title: "Ekspor Data",
+                    text: "Apakah Anda yakin ingin mengekspor data ini?",
+                    icon: "info",
+                    showCancelButton: true,
+                    confirmButtonText: "Ekspor",
+                    cancelButtonText: "Batal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire("Data berhasil diekspor!", "", "success");
+                    }
+                });
+            });
+
+            // Tombol pratinjau data
+            $(".btn-warning").click(function(){
+                const nisn = $(this).closest('tr').find('td:nth-child(2)').text();
+                const nama = $(this).closest('tr').find('td:nth-child(3)').text();
+
+                // Contoh menampilkan data di modal
+                $("#previewModal .modal-body").html(`
+                    <p><strong>NISN:</strong> ${nisn}</p>
+                    <p><strong>Nama Lengkap:</strong> ${nama}</p>
+                `);
+            });
+
+            // Tombol hapus data
+            $("form[action*='siswa.delete']").on("submit", function(e){
+                e.preventDefault();
+                const form = this;
+                Swal.fire({
+                    title: "Konfirmasi Hapus",
+                    text: "Yakin ingin menghapus siswa ini?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Hapus",
+                    cancelButtonText: "Batal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+
+            // Dropdown aksi tambahan untuk diterima atau tidak diterima
+            $(".dropdown-menu a").click(function(){
+                const action = $(this).text();
+                const row = $(this).closest('tr');
+                const nama = row.find('td:nth-child(3)').text();
+                const statusCell = row.find('td:nth-child(6)');
+
+                Swal.fire({
+                    title: `Konfirmasi Aksi: ${action}`,
+                    text: `Apakah Anda ingin menandai siswa ${nama} sebagai '${action}'?`,
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya",
+                    cancelButtonText: "Batal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (action === 'Diterima') {
+                            statusCell.html('<i class="bi bi-check-circle text-success"></i>');
+                            const newRow = row.clone();
+                            newRow.find("td:nth-child(7)").remove(); // Menghapus kolom aksi dari clone
+                            $("#Santri tbody").append(newRow);
+                        } else if (action === 'Tidak') {
+                            statusCell.html('<i class="bi bi-x-circle text-danger"></i>');
+                            const newRow = row.clone();
+                            newRow.find("td:nth-child(7)").remove(); // Menghapus kolom aksi dari clone
+                            $("#tidak-lanjut tbody").append(newRow);
+                        }
+
+                        Swal.fire(`Siswa ${nama} telah ditandai sebagai '${action}'.`, "", "success");
+                    }
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".btn-preview").forEach((button) => {
+                button.addEventListener("click", function () {
+                    const modalContent = document.querySelector("#previewContent");
+                    const data = this.dataset;
+
+                    // Template untuk menampilkan data di modal
+                    modalContent.innerHTML = `
+                        <tr><th>Nama Lengkap</th><td>${data.namaLengkap}</td></tr>
+                        <tr><th>Nama Panggilan</th><td>${data.namaPanggilan}</td></tr>
+                        <tr><th>Jenis Kelamin</th><td>${data.jenisKelamin}</td></tr>
+                        <tr><th>Tempat Lahir</th><td>${data.tempatLahir}</td></tr>
+                        <tr><th>Tanggal Lahir</th><td>${data.tanggalLahir}</td></tr>
+                        <tr><th>Alamat Lengkap</th><td>${data.alamatLengkap}</td></tr>
+                        <tr><th>Status</th><td>${data.status}</td></tr>
+                        <tr><th>Asal Sekolah</th><td>${data.asalSekolah}</td></tr>
+                        <tr><th>NISN</th><td>${data.nisn}</td></tr>
+                        <tr><th>NPSN</th><td>${data.npsn}</td></tr>
+                        <tr><th>NIK</th><td>${data.nik}</td></tr>
+                        <tr><th>Anak Ke</th><td>${data.anakKe}</td></tr>
+                        <tr><th>Jumlah Saudara</th><td>${data.jumlahSaudara}</td></tr>
+                        <tr><th>Nama Ayah</th><td>${data.namaAyah}</td></tr>
+                        <tr><th>Pekerjaan Ayah</th><td>${data.pekerjaanAyah}</td></tr>
+                        <tr><th>Pendidikan Ayah</th><td>${data.pendidikanAyah}</td></tr>
+                        <tr><th>Alamat Ayah</th><td>${data.alamatAyah}</td></tr>
+                        <tr><th>Nama Ibu</th><td>${data.namaIbu}</td></tr>
+                        <tr><th>Pekerjaan Ibu</th><td>${data.pekerjaanIbu}</td></tr>
+                        <tr><th>Pendidikan Ibu</th><td>${data.pendidikanIbu}</td></tr>
+                        <tr><th>Alamat Ibu</th><td>${data.alamatIbu}</td></tr>
+                    `;
+                });
+            });
+        });
+
+
+        // jquery donatur
         $(function(){
             $("#add_donatur").click(function(){
                 $("#modal-addDonatur").modal("show");

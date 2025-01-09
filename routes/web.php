@@ -47,6 +47,8 @@ Route::middleware(['auth:admin'])-> group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Delete siswa
     Route::delete('/dashboard/siswa/{id}', [DashboardController::class, 'deleteSiswa'])->name('siswa.delete');
+    // View Pendaftar
+    Route::post('/admin/pendaftar/view', [DashboardController::class, 'viewPendaftar'])->name('admin.viewPendaftar');
 
 
     //dashboard admin donatur

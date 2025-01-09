@@ -5,7 +5,7 @@
             <h5>Nama Lengkap</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getDonatur -> nama_donatur}}</p>
+            <p>: {{$getPendaftar -> nama_pendaftar}}</p>
         </div>
     </div>
     <div class="row">
@@ -13,7 +13,7 @@
             <h5>Jenis Kelamin</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getDonatur -> jenis_kelamin_donatur}}</p>
+            <p>: {{$getPendaftar -> jenis_kelamin_donatur}}</p>
         </div>
     </div>
     <div class="row">
@@ -21,7 +21,7 @@
             <h5>Alamat Lengkap</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getDonatur -> alamat_donatur}}</p>
+            <p>: {{$getPendaftar -> alamat_donatur}}</p>
         </div>
     </div>
     <div class="row">
@@ -29,7 +29,7 @@
             <h5>Tanggal Masuk Donasi</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{date('d/m/Y', strtotime($getDonatur -> tanggal_donasi))}}</p>
+            <p>: {{date('d/m/Y', strtotime($getPedaftar -> tanggal_donasi))}}</p>
         </div>
     </div>
     <div class="row">
@@ -37,7 +37,7 @@
             <h5>Nominal Donasi</h5>
         </div>
         <div class="col-md-8">
-            <p>: Rp. {{$getDonatur -> nominal_donasi}}</p>
+            <p>: Rp. {{$getPendaftar -> nominal_donasi}}</p>
         </div>
     </div>
     <div class="row">

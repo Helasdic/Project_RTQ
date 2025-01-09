@@ -26,6 +26,14 @@ class DashboardController extends Controller
         return view('dashboard.maindashboard', compact('getFeedback', 'getDonatur', 'getPendaftar'));
     }
 
+    public function viewPendaftar(Request $request){
+        $id = $request->input('id');
+
+        $getPendaftar = Siswa::find($id);
+
+        return view('dashboard.modal_pendaftar.viewPendaftar', compact('getPendaftar'));
+    }
+
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

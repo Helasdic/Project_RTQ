@@ -3,32 +3,32 @@
 @section('content')
     <main class="container py-4">
         <div class="row mb-4 align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <h1 class="fw-bold">Dashboard</h1>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="d-flex gap-3">
-                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 25%;">
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
                         <h5>Pendaftar</h5>
                         <h3 class="fw-bold">{{$getPendaftar -> count()}}</h3>
                     </div>
 
-                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 25%;">
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
                         <h5>Santri</h5>
                         <h3 class="fw-bold">100</h3>
                     </div>
                     
-                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 25%;">
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
                         <h5>Gagal</h5>
                         <h3 class="fw-bold">5</h3>
                     </div>
 
-                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 25%;">
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
                         <h5>Donatur</h5>
                         <h3 class="fw-bold">{{$getDonatur -> count()}}</h3>
                     </div>
 
-                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 25%;">
+                    <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
                         <h5>Feedback</h5>
                         <h3 class="fw-bold">{{$getFeedback -> count()}}</h3>
                     </div>
@@ -96,7 +96,15 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                                     </form>
-                                    <button class="btn btn-primary btn-sm"><i class="bi bi-three-dots-vertical"></i></button>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i class="bi bi-three-dots-vertical"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                          <li><a class="dropdown-item" href="#">Diterima</a></li>
+                                          <li><a class="dropdown-item" href="#">Tidak</a></li>
+                                        </ul>
+                                    </div>                                      
                                 </td>
                             </tr>
                             @endforeach
@@ -219,7 +227,7 @@
         </div>
     </main>
 
-    <!-- Modal -->
+    <!-- Modal View -->
     <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">

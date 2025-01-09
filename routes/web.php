@@ -52,6 +52,9 @@ Route::middleware(['auth:admin'])-> group(function () {
     //dashboard admin donatur
     Route::post('/admin/donatur/store', [DashboardController::class, 'storeDonatur'])->name('admin.storeDonatur');
     Route::post('/admin/donatur/view', [DashboardController::class, 'viewDonatur'])->name('admin.viewDonatur');
+    Route::post('/admin/donatur/edit', [DashboardController::class, 'editFormDonatur'])->name('admin.editFormDonatur');
+    Route::post('/admin/donatur/{id}/edit', [DashboardController::class, 'editDonatur'])->name('admin.editDonatur');
+    Route::post('/admin/donatur/{id}/delete', [DashboardController::class, 'deleteDonatur'])->name('admin.deleteDonatur');
 
     //admin kegiatan
     Route::get('/admin/kegiatan', [KegiatanController::class, 'adminIndex'])->name('admin.kegiatan');

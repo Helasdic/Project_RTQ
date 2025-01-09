@@ -36,7 +36,7 @@
                                 if($cek == '-'){
                                     $icon = asset('assets/images/quran.jpeg');
                                 } else {
-                                    $icon = Storage::url('kegiatan/'.$kegiatan -> foto_kegiatan);
+                                    $icon = Storage::url('kegiatan/'.$cek);
                                 }
                             @endphp
                             <img src="{{ $icon }}" class="card-img-top img-kegiatan" alt="Tahfid Camp">
@@ -59,7 +59,7 @@
                                     </a>
                                     <form action="/admin/kegiatan/{{$kegiatan -> id}}/delete" method="POST">
                                         @csrf
-                                        <a href="#" class="konfirmasiDeleteApps">
+                                        <a href="#" class="konfirmasiDeleteKegiatan">
                                             <img class="icon-btn" src="{{asset('assets/images/btn_hapus.png')}}" />
                                         </a>
                                     </form>
@@ -151,7 +151,7 @@
                 $("#modal-editKegiatan").modal("show");
             });
 
-            $(".konfirmasiDeleteApps").click(function(e){
+            $(".konfirmasiDeleteKegiatan").click(function(e){
                 //memilih form dari si button
                 form = $(this).closest('form');
 

@@ -5,7 +5,7 @@
             <div class="modal-content" style="border-radius: var(--shape-corner-large);">
                 <div class="modal-body">
                     <div class="container" style="padding: 40px;">
-                        <form id="formDonatur" method="POST" action="{{ route('admin.storeDonatur') }}" enctype="multipart/form-data">
+                        <form id="formAddDonatur" method="POST" action="{{ route('admin.storeDonatur') }}" enctype="multipart/form-data">
                             @csrf
                             <h3 class="primay">Tambahkan Donatur</h3>
                             <div class="mb-3 mt-4">
@@ -66,16 +66,27 @@
     <div class="modal fade" id="modal-viewDonatur" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="previewModalLabel">Profil Lengkap Donatur</h5>
-                </div>
-
                 <div class="modal-body" id="loadViewDonatur">
                     
                 </div>
                 
                 <div class="modal-footer">
                     <button type="button" id="close-view" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Donatur-->
+    <div class="modal fade" id="modal-editDonatur" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body" id="loadEditDonatur">
+                    
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" id="close-edit" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
                 </div>
             </div>
         </div>

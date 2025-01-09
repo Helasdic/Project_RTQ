@@ -73,13 +73,11 @@
                                 <th>Nama Lengkap</th>
                                 <th>Nama Panggilan</th>
                                 <th>Jenis Kelamin</th>
-                                {{-- <th>NO.TELP</th> --}}
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($getPendaftar as $index => $item)
                             @foreach ($getPendaftar as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
@@ -128,7 +126,6 @@
                         </thead>
                         <tbody>
                             @foreach ($getPendaftar as $index => $item)
-                            @foreach ($getPendaftar as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nik }}</td>
@@ -153,7 +150,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>          
+            </div>
 
             <!-- Tidak Lanjut Tab -->
             <div class="tab-pane fade" id="tidak-lanjut" role="tabpanel">
@@ -283,6 +280,43 @@
                 $("#modal-addDonatur").modal("show");
             });
 
+            $(".konfirmasiDeleteDonatur").click(function(e){
+                //memilih form dari si button
+                form = $(this).closest('form');
+
+                e.preventDefault();
+                Swal.fire({
+                    title: "Konfirmasi Hapus Data",
+                    showCancelButton: true,
+                    confirmButtonText: "Delete"
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        form.submit();
+                        Swal.fire("Deleted!", "", "success");
+                    }
+                });
+            });
+
+            $('.edit_donatur').click(function(){
+                var id = $(this).attr('kode');
+
+                $.ajax({
+                    type: 'POST',
+                    url : '{{route('admin.editFormDonatur')}}',
+                    cache : false,
+                    data : {
+                        _token : "{{ csrf_token() }}",
+                        id : id
+                    },
+                    success: function(respond){
+                        $("#loadEditDonatur").html(respond);
+                    }
+                });
+
+                $("#modal-editDonatur").modal("show");
+            });
+
             $(".view_donatur").click(function(){
                 var id = $(this).attr('kode');
                 // console.log(id);
@@ -303,10 +337,56 @@
                 $("#modal-viewDonatur").modal("show");
             });
 
+            //button close modal
             $("#close-view").click(function(){
                 $("#modal-viewDonatur").modal("hide");
             });
+            $("#close-edit").click(function(){
+                $("#modal-editDonatur").modal("hide");
+            });
+
+            //pesan sukses 
+            $("#formAddDonatur").submit(function(e){  
+                e.preventDefault();
+                Swal.fire({
+                    title: "Data Donatur Ditambahkan!",
+                    text: "Data Donatur baru telah berhasil ditambahkan.",
+                    icon: "success",
+                    confirmButtonText: "Terima Kasih",
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'my-title-class', // Class untuk judul
+                        content: 'my-content-class', // Class untuk teks konten
+                        confirmButton: 'my-confirm-button-class' // Class untuk tombol konfirmasi
+                        // Anda juga bisa menambahkan class untuk tombol cancel, popup, icon, dll.
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    }
+                });
+            });
+
+            $("#formEditDonatur").submit(function(e){  
+                e.preventDefault();
+                Swal.fire({
+                    title: "Data Donatur Diperbarui!",
+                    text: "Data Donatur baru telah berhasil diperbarui.",
+                    icon: "success",
+                    confirmButtonText: "Terima Kasih",
+                    allowOutsideClick: false,
+                    customClass: {
+                        title: 'my-title-class', // Class untuk judul
+                        content: 'my-content-class', // Class untuk teks konten
+                        confirmButton: 'my-confirm-button-class' // Class untuk tombol konfirmasi
+                        // Anda juga bisa menambahkan class untuk tombol cancel, popup, icon, dll.
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    }
+                });
+            });
         });
     </script>
-    
 @endpush

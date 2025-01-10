@@ -173,29 +173,6 @@
         </div>
     </main>
 
-    <!-- Modal Preview -->
-    <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="previewModalLabel">Preview Data Pendaftar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-striped">
-                        <tbody id="previewContent">
-                            <!-- Data akan dimuat menggunakan JavaScript -->
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <!-- Modal Pendaftars-->
     <div class="modal fade" id="tambahPendaftarModal" tabindex="-1" aria-labelledby="tambahPendaftarModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -432,40 +409,7 @@
             });
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".btn-preview").forEach((button) => {
-                button.addEventListener("click", function () {
-                    const modalContent = document.querySelector("#previewContent");
-                    const data = this.dataset;
-
-                    // Template untuk menampilkan data di modal
-                    modalContent.innerHTML = `
-                        <tr><th>Nama Lengkap</th><td>${data.namaLengkap}</td></tr>
-                        <tr><th>Nama Panggilan</th><td>${data.namaPanggilan}</td></tr>
-                        <tr><th>Jenis Kelamin</th><td>${data.jenisKelamin}</td></tr>
-                        <tr><th>Tempat Lahir</th><td>${data.tempatLahir}</td></tr>
-                        <tr><th>Tanggal Lahir</th><td>${data.tanggalLahir}</td></tr>
-                        <tr><th>Alamat Lengkap</th><td>${data.alamatLengkap}</td></tr>
-                        <tr><th>Status</th><td>${data.status}</td></tr>
-                        <tr><th>Asal Sekolah</th><td>${data.asalSekolah}</td></tr>
-                        <tr><th>NISN</th><td>${data.nisn}</td></tr>
-                        <tr><th>NPSN</th><td>${data.npsn}</td></tr>
-                        <tr><th>NIK</th><td>${data.nik}</td></tr>
-                        <tr><th>Anak Ke</th><td>${data.anakKe}</td></tr>
-                        <tr><th>Jumlah Saudara</th><td>${data.jumlahSaudara}</td></tr>
-                        <tr><th>Nama Ayah</th><td>${data.namaAyah}</td></tr>
-                        <tr><th>Pekerjaan Ayah</th><td>${data.pekerjaanAyah}</td></tr>
-                        <tr><th>Pendidikan Ayah</th><td>${data.pendidikanAyah}</td></tr>
-                        <tr><th>Alamat Ayah</th><td>${data.alamatAyah}</td></tr>
-                        <tr><th>Nama Ibu</th><td>${data.namaIbu}</td></tr>
-                        <tr><th>Pekerjaan Ibu</th><td>${data.pekerjaanIbu}</td></tr>
-                        <tr><th>Pendidikan Ibu</th><td>${data.pendidikanIbu}</td></tr>
-                        <tr><th>Alamat Ibu</th><td>${data.alamatIbu}</td></tr>
-                    `;
-                });
-            });
-        });
-
+        // view pendaftar
 
         // jquery donatur
         $(function(){

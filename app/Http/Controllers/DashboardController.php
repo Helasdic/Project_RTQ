@@ -172,8 +172,17 @@ class DashboardController extends Controller
             // Cari siswa berdasarkan ID
             $siswa = Siswa::findOrFail($id);
 
+            $cek = $siswa -> nik;
+
+            $sekolah = Sekolah::where('nik_siswa', $cek);
+            $orangtua = WaliSiswa::where('nik_siswa', $cek);
+
+            // dd($orangtua);
+
             // Hapus data siswa
             $siswa->delete();
+            $sekolah->delete();
+            $orangtua->delete();
 
             // Redirect ke halaman dashboard dengan pesan sukses
             return redirect()->route('dashboard')->with('success', 'Data siswa berhasil dihapus.');

@@ -30,7 +30,7 @@
                     <td class="d-flex align-items-center gap-3 justify-content-center">
                         <!-- Button to trigger modal -->
                         <!-- Button to trigger modal -->
-                        <button class="btn btn-warning btn-sm btn-preview"
+                        <button class="btn btn-primary btn-sm btn-preview"
                             data-bs-toggle="modal" 
                             data-bs-target="#previewModal" 
                             data-id="{{ $item->id }}" 
@@ -62,15 +62,8 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
                         </form>
-                        <div class="dropdown">
-                            <button class="btn btn-primary btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                              <i class="bi bi-three-dots-vertical"></i>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <li><a class="dropdown-item" href="#">Diterima</a></li>
-                              <li><a class="dropdown-item" href="#">Tidak</a></li>
-                            </ul>
-                        </div>                                      
+                        <a href="" class="btn btn-success btn-sm"><i class="bi bi-check2-square"></i></a>
+                        <a href="" class="btn btn-warning btn-sm"><i class="bi bi-x-square"></i></a>                                 
                     </td>
                 </tr>
                 @endforeach

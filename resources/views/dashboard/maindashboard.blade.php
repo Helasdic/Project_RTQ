@@ -15,12 +15,12 @@
 
                     <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
                         <h5>Santri</h5>
-                        <h3 class="fw-bold">100</h3>
+                        <h3 class="fw-bold">{{$getPendaftarLolos -> count()}}</h3>
                     </div>
                     
                     <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
                         <h5>Gagal</h5>
-                        <h3 class="fw-bold">5</h3>
+                        <h3 class="fw-bold">{{$getPendaftarGagal -> count()}}</h3>
                     </div>
 
                     <div class="card p-3 text-center border-0 shadow flex-fill" style="width: 15%;">
@@ -316,6 +316,7 @@
         </div>
     </div>
 
+    @include('dashboard.modal_pendaftar.addPendaftar')
     @include('dashboard.modal_donatur.addDonatur')
 @endsection
 
@@ -413,6 +414,70 @@
 
         // jquery donatur
         $(function(){
+            // Menampilkan modal view pendaftar
+            $(".btn_view").click(function(){
+                var id = $(this).attr('kode');
+                // console.log(id);
+
+                $.ajax({
+                    type: 'POST',
+                    url : '{{route('admin.viewPendaftar')}}',
+                    cache : false,
+                    data : {
+                        _token : "{{ csrf_token() }}",
+                        id : id
+                    },
+                    success: function(respond){
+                        $("#loadViewPendaftar").html(respond);
+                    }
+                });
+
+                $("#modal-viewPendaftar").modal("show");
+            });
+
+            // Menutup modal view pendaftar
+            $("#close-viewPendaftar").click(function(){
+                $("#modal-viewPendaftar").modal("hide");
+            });
+
+            //Button Terima Pendaftar Lolos
+            $(".btn_lolos").click(function(e){
+                 //memilih form dari si button
+                 form = $(this).closest('form');
+
+                e.preventDefault();
+                Swal.fire({
+                    title: "Konfirmasi Siswa Lolos ?",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya, Lanjutkan",
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        form.submit();
+                        Swal.fire("Diterima!", "", "success");
+                    }
+                });
+            });
+
+            //Button Tolak Pendaftar (Gagal Lolos)
+            $(".btn_gagal").click(function(e){
+                 //memilih form dari si button
+                 form = $(this).closest('form');
+
+                e.preventDefault();
+                Swal.fire({
+                    title: "Konfirmasi Siswa Gagal ?",
+                    showCancelButton: true,
+                    confirmButtonText: "Ya, Lanjutkan",
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        form.submit();
+                        Swal.fire("Sukses!", "", "success");
+                    }
+                });
+            });
+
             $("#add_donatur").click(function(){
                 $("#modal-addDonatur").modal("show");
             });
@@ -475,10 +540,10 @@
             });
 
             //button close modal
-            $("#close-view").click(function(){
+            $("#close-viewDonatur").click(function(){
                 $("#modal-viewDonatur").modal("hide");
             });
-            $("#close-edit").click(function(){
+            $("#close-editDonatur").click(function(){
                 $("#modal-editDonatur").modal("hide");
             });
 

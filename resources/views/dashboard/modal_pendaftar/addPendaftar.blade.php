@@ -1,21 +1,29 @@
-    <!-- Modal Preview -->
-    <div class="modal fade" id="previewModal" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="previewModalLabel">Preview Data Pendaftar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-striped">
-                        <tbody id="previewContent">
-                            <!-- Data akan dimuat menggunakan JavaScript -->
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
+<!-- Modal Preview Pendaftar-->
+<div class="modal fade" id="modal-viewPendaftar" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body" id="loadViewPendaftar">
+                
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" id="close-viewPendaftar" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal Edit Pendaftar-->
+<div class="modal fade" id="modal-editPendaftar" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body" id="loadEditPendaftar">
+                
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" id="close-viewPendaftar" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>

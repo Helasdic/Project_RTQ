@@ -71,7 +71,7 @@
                 </div>
                 
                 <div class="modal-footer">
-                    <button type="button" id="close-view" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
+                    <button type="button" id="close-viewDonatur" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
                 </div>
                 
                 <div class="modal-footer">
-                    <button type="button" id="close-edit" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
+                    <button type="button" id="close-editDonatur" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
                 </div>
             </div>
         </div>

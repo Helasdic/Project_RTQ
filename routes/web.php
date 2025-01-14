@@ -47,9 +47,12 @@ Route::middleware(['auth:admin'])-> group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Delete siswa
     Route::delete('/dashboard/siswa/{id}', [DashboardController::class, 'deleteSiswa'])->name('siswa.delete');
-    // View Pendaftar
+    
+    //dashboard admin pendaftar
     Route::post('/admin/pendaftar/view', [DashboardController::class, 'viewPendaftar'])->name('admin.viewPendaftar');
-
+    Route::post('/admin/pendaftar/edit', [DashboardController::class, 'editPendaftar'])->name('admin.editPendaftar');
+    Route::post('/admin/pendaftar/{id}/lolos', [DashboardController::class, 'pendaftarLolos'])->name('admin.PendaftarLolos');
+    Route::post('/admin/pendaftar/{id}/gagal', [DashboardController::class, 'pendaftarGagal'])->name('admin.pendaftarGagal');
 
     //dashboard admin donatur
     Route::post('/admin/donatur/store', [DashboardController::class, 'storeDonatur'])->name('admin.storeDonatur');

@@ -5,6 +5,9 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\PendaftarController;
+use App\Http\Controllers\SiswaGagalController;
+use App\Http\Controllers\SiswaLolosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,14 +48,27 @@ Route::middleware(['auth:admin'])-> group(function () {
 
     //dashboard admin
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    // Delete siswa
-    Route::delete('/dashboard/siswa/{id}', [DashboardController::class, 'deleteSiswa'])->name('siswa.delete');
-    
+
+    // Delete Pendaftar
+    Route::delete('/dashboard/siswa/{id}', [PendaftarController::class, 'deleteSiswa'])->name('siswa.delete');
+
     //dashboard admin pendaftar
-    Route::post('/admin/pendaftar/view', [DashboardController::class, 'viewPendaftar'])->name('admin.viewPendaftar');
-    Route::post('/admin/pendaftar/edit', [DashboardController::class, 'editPendaftar'])->name('admin.editPendaftar');
-    Route::post('/admin/pendaftar/{id}/lolos', [DashboardController::class, 'pendaftarLolos'])->name('admin.PendaftarLolos');
-    Route::post('/admin/pendaftar/{id}/gagal', [DashboardController::class, 'pendaftarGagal'])->name('admin.pendaftarGagal');
+    Route::post('/admin/pendaftar/view', [PendaftarController::class, 'viewPendaftar'])->name('admin.viewPendaftar');
+    Route::post('/admin/pendaftar/edit', [PendaftarController::class, 'editFormPendaftar'])->name('admin.editFormPendaftar');
+    Route::post('/admin/pendaftar/{id}/lolos', [PendaftarController::class, 'pendaftarLolos'])->name('admin.PendaftarLolos');
+    Route::post('/admin/pendaftar/{id}/gagal', [PendaftarController::class, 'pendaftarGagal'])->name('admin.pendaftarGagal');
+
+    //dashboard admin siswa lolos
+    Route::post('/admin/lolos/view', [SiswaLolosController::class, 'viewLolos'])->name('admin.viewLolos');
+    Route::post('/admin/lolos/edit', [SiswaLolosController::class, 'editFormLolos'])->name('admin.editFormLolos');
+    Route::post('/admin/lolos/{id}/batal', [SiswaLolosController::class, 'batalLolos'])->name('admin.batalLolos');
+    Route::post('/admin/lolos/{id}/delete', [SiswaLolosController::class, 'deleteLolos'])->name('admin.deleteLolos');
+    
+    //dashboard admin siswa Gagal
+    Route::post('/admin/gagal/view', [SiswaGagalController::class, 'viewGagal'])->name('admin.viewGagal');
+    Route::post('/admin/gagal/edit', [SiswaGagalController::class, 'editFormGagal'])->name('admin.editFormGagal');
+    Route::post('/admin/gagal/{id}/batal', [SiswaGagalController::class, 'batalGagal'])->name('admin.batalGagal');
+    Route::post('/admin/gagal/{id}/delete', [SiswaGagalController::class, 'deleteGagal'])->name('admin.deleteGagal');
 
     //dashboard admin donatur
     Route::post('/admin/donatur/store', [DashboardController::class, 'storeDonatur'])->name('admin.storeDonatur');

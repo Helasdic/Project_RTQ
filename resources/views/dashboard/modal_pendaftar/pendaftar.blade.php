@@ -29,13 +29,12 @@
                     {{-- <td><i class="bi bi-check-circle text-success"></i></td> --}}
                     <td class="d-flex align-items-center gap-1 justify-content-center">
                         <!-- Button to trigger modal -->
-                        <!-- Button to trigger modal -->
-                        <button class="btn btn-primary btn-sm btn-preview btn_view" kode="{{$item -> id}}"><i class="bi bi-eye"></i></button>
-                        <button class="btn btn-secondary btn-sm btn-preview btn_edit" kode="{{$item -> id}}"><i class="bi bi-pencil-square"></i></button>
-                        <form action="{{ route('siswa.delete', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus siswa ini?');">
+                        <button class="btn btn-primary btn-sm btn-preview btn_viewPendaftar" kode="{{$item -> id}}"><i class="bi bi-eye"></i></button>
+                        <button class="btn btn-secondary btn-sm btn-preview btn_editPendaftar" kode="{{$item -> id}}"><i class="bi bi-pencil-square"></i></button>
+                        <form action="{{ route('siswa.delete', $item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                            <button type="submit" class="btn btn-danger btn-sm konfirmasiDeletePendaftar"><i class="bi bi-trash"></i></button>
                         </form>
 
                         <form action="{{ route('admin.PendaftarLolos', $item->id) }}" method="POST">

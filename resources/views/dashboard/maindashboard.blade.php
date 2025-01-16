@@ -60,86 +60,10 @@
             @include('dashboard.modal_pendaftar.pendaftar')
 
             <!-- Santri Tab -->
-            <div class="tab-pane fade" id="Santri" role="tabpanel">
-                <div class="d-flex justify-content-between mb-3">
-                    <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead class="table-info">
-                            <tr>
-                                <th>No.</th>
-                                <th>NIK</th>
-                                <th>Nama Lengkap</th>
-                                <th>Nama Panggilan</th>
-                                <th>Jenis Kelamin</th>
-                                <th>NISN</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($getPendaftar as $index => $item)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nik }}</td>
-                                <td>{{ $item->nama_lengkap }}</td>
-                                <td>{{ $item->nama_panggilan }}</td>
-                                <td>{{ $item->jenis_kelamin }}</td>
-                                <td>{{ $item->sekolah?->nisn ?? '-' }}</td>
-                                <td><i class="bi bi-check-circle text-success"></i></td>
-                                <td class="d-flex align-items-center gap-2">
-                                    <!-- Button to trigger modal -->
-                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#previewModal">
-                                        <i class="bi bi-eye"></i>
-                                    </button>
-                                    <form action="{{ route('siswa.delete', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus siswa ini?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            @include('dashboard.modal_santri.santri')
 
             <!-- Tidak Lanjut Tab -->
-            <div class="tab-pane fade" id="tidak-lanjut" role="tabpanel">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead class="table-danger">
-                            <tr>
-                                <th>No.</th>
-                                <th>NIK</th>
-                                <th>Nama Lengkap</th>
-                                <th>Nama Panggilan</th>
-                                <th>Jenis Kelamin</th>
-                                <th>NISN</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>453463636</td>
-                                <td>Ilhamudin Armayin</td>
-                                <td>Ilham</td>
-                                <td>Laki-laki</td>
-                                <td>453463636</td>
-                                <td><i class="bi bi-x-circle text-danger"></i></td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#tidakLanjutModal"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            @include('dashboard.modal_gagal.gagal')
 
             <!-- Donatur Tab -->
             @include('dashboard.modal_donatur.donatur')  
@@ -173,150 +97,12 @@
         </div>
     </main>
 
-    <!-- Modal Pendaftars-->
-    <div class="modal fade" id="tambahPendaftarModal" tabindex="-1" aria-labelledby="tambahPendaftarModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tambahPendaftarModalLabel">Tambah Pendaftar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container" style="padding: 40px;">
-                        <h3 class="primay">Form Pendaftaran</h3>
-                    <form id="formDaftar" method="POST" action="{{ route('daftar.store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <!-- Data Peserta Didik -->
-                        <div class="mb-3">
-                            <h5>Data Peserta Didik</h5>
-                        </div>
-                        <div class="mb-3">
-                            <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="namaLengkap" name="namaLengkap" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="namaPanggilan" class="form-label">Nama Panggilan</label>
-                            <input type="text" class="form-control" id="namaPanggilan" name="namaPanggilan" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
-                            <select class="form-control" id="jenisKelamin" name="jenisKelamin" required>
-                                <option value="">- pilih -</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tempatLahir" class="form-label">Tempat Lahir</label>
-                            <input type="text" class="form-control" id="tempatLahir" name="tempatLahir" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggalLahir" name="tanggalLahir" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="alamatLengkap" class="form-label">Alamat Lengkap</label>
-                            <textarea class="form-control" id="alamatLengkap" name="alamatLengkap" rows="3" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="status" class="form-label">Apakah anda sebelumnya bersekolah?</label>
-                            <select class="form-control" id="status" name="status" required>
-                                <option value="">- pilih -</option>
-                                <option value="Ya">Ya</option>
-                                <option value="Tidak">Tidak</option>
-                            </select>
-                        </div>
-
-                        <!-- Bagian Sekolah (ditampilkan jika 'status' adalah 'Ya') -->
-                        <div id="form-sekolah" style="display: none;">
-                            <div class="mb-3">
-                                <label for="asalSekolah" class="form-label">Asal Sekolah</label>
-                                <input type="text" class="form-control" id="asalSekolah" name="asalSekolah">
-                            </div>
-                            <div class="mb-3">
-                                <label for="alamatSekolah" class="form-label">Alamat Sekolah</label>
-                                <textarea class="form-control" id="alamatSekolah" name="alamatSekolah" rows="3"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nisn" class="form-label">NISN</label>
-                                <input type="number" class="frame-input" id="nisn" aria-describedby="nisn" name="nisn">
-                            </div>
-                            <div class="mb-3">
-                                <label for="npsn" class="form-label">NPSN</label>
-                                <input type="number" class="frame-input" id="npsn" aria-describedby="npsn" name="npsn">
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="nik" class="form-label">NIK</label>
-                            <input type="number" class="frame-input" id="nik" aria-describedby="nik" name="nik" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="anakKe" class="form-label">Anak Ke-</label>
-                            <input type="number" class="frame-input" id="anakKe" aria-describedby="anakKe" name="anakKe" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="jumlahSaudara" class="form-label">Jumlah Saudara Kandung</label>
-                            <input type="number" class="frame-input" id="jumlahSaudara" aria-describedby="jumlahSaudara" name="jumlahSaudara" required>
-                        </div>
-
-                        <!-- Data Orang Tua/Wali -->
-                        <div class="mb-3">
-                            <h5>Data Orang Tua/Wali Peserta Didik</h5>
-                        </div>
-                        <div class="mb-3">
-                            <label for="namaAyah" class="form-label">Nama Ayah/Wali</label>
-                            <input type="text" class="form-control" id="namaAyah" name="namaAyah" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pekerjaanAyah" class="form-label">Pekerjaan</label>
-                            <input type="text" class="frame-input" id="pekerjaanAyah" aria-describedby="pekerjaanAyah" name="pekerjaanAyah" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pendidikanAyah" class="form-label">Pendidikan</label>
-                            <input type="text" class="frame-input" id="pendidikanAyah" aria-describedby="pendidikanAyah" name="pendidikanAyah" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="alamatAyah" class="form-label">Alamat Lengkap</label>
-                            <textarea class="frame-input" id="alamatAyah" aria-describedby="alamatAyah" name="alamatAyah" rows="4" cols="50" required></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="namaibu" class="form-label">Nama Ibu</label>
-                            <input type="text" class="frame-input" id="namaIbu" aria-describedby="namaIbu" name="namaIbu" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pekerjaanIbu" class="form-label">Pekerjaan</label>
-                            <input type="text" class="frame-input" id="pekerjaanIbu" aria-describedby="pekerjaanIbu" name="pekerjaanIbu" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pendidikanIbu" class="form-label">Pendidikan</label>
-                            <input type="text" class="frame-input" id="pendidikanIbu" aria-describedby="pendidikanIbu" name="pendidikanIbu" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="alamatIbu" class="form-label">Alamat Lengkap</label>
-                            <textarea class="frame-input" id="alamatIbu" aria-describedby="alamatIbu" name="alamatIbu" rows="4" cols="50" required></textarea>
-                        </div>
-                        <!-- Tambahkan elemen form lainnya sesuai kebutuhan -->
-
-                        <div class="mb-3">
-                            <label for="kartuKeluarga" class="form-label">Upload Kartu Keluarga (KK)</label>
-                            <input type="file" class="form-control" id="kartuKeluarga" name="kartuKeluarga" accept=".jpg, .jpeg, .png, .svg, .pdf" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="aktaKelahiran" class="form-label">Upload Akta Kelahiran</label>
-                            <input type="file" class="form-control" id="aktaKelahiran" name="aktaKelahiran" accept=".jpg, .jpeg, .png, .svg, .pdf" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100">Kirim</button>
-                    </form>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
+    
+    {{-- <!-- Modal Pendaftars--> --}}
     @include('dashboard.modal_pendaftar.addPendaftar')
+
+    {{-- Modal Donatur --}}
     @include('dashboard.modal_donatur.addDonatur')
 @endsection
 
@@ -410,12 +196,13 @@
             });
         });
 
-        // view pendaftar
-
-        // jquery donatur
         $(function(){
-            // Menampilkan modal view pendaftar
-            $(".btn_view").click(function(){
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////PENDAFTAR///////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //Button View Pendaftar
+            $(".btn_viewPendaftar").click(function(){
                 var id = $(this).attr('kode');
                 // console.log(id);
 
@@ -438,6 +225,50 @@
             // Menutup modal view pendaftar
             $("#close-viewPendaftar").click(function(){
                 $("#modal-viewPendaftar").modal("hide");
+            });
+
+            //menampilkan modal edit pendaftar
+            $(".btn_editPendaftar").click(function(){
+                var id = $(this).attr('kode');
+                // console.log(id);
+                $.ajax({
+                    type: 'POST',
+                    url : '{{route('admin.editFormPendaftar')}}',
+                    cache : false,
+                    data : {
+                        _token : "{{ csrf_token() }}",
+                        id : id
+                        },
+                    success: function(respond){
+                        $("#loadEditPendaftar").html(respond);
+                    }
+                });
+
+                $("#modal-editPendaftar").modal("show");
+            });
+
+            // Menutup modal edit pendaftar
+            $("#close-editPendaftar").click(function(){
+                $("#modal-editPendaftar").modal("hide");
+            });
+
+            //Button Hapus Pendaftar
+            $(".konfirmasiDeletePendaftar").click(function(e){
+                //memilih form dari si button
+                form = $(this).closest('form');
+
+                e.preventDefault();
+                Swal.fire({
+                    title: "Konfirmasi Hapus Data",
+                    showCancelButton: true,
+                    confirmButtonText: "Delete"
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        form.submit();
+                        Swal.fire("Deleted!", "", "success");
+                    }
+                });
             });
 
             //Button Terima Pendaftar Lolos
@@ -477,11 +308,20 @@
                     }
                 });
             });
+            //////////////////////////////////////////// TUTUP PENDAFTAR ////////////////////////////////////////////
 
+
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////DONATUR/////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //Button Tambahkan Data Donatur
             $("#add_donatur").click(function(){
                 $("#modal-addDonatur").modal("show");
             });
 
+            //Button Delete Data Donatur
             $(".konfirmasiDeleteDonatur").click(function(e){
                 //memilih form dari si button
                 form = $(this).closest('form');
@@ -500,6 +340,7 @@
                 });
             });
 
+            //Button Edit Data Donatur
             $('.edit_donatur').click(function(){
                 var id = $(this).attr('kode');
 
@@ -519,6 +360,7 @@
                 $("#modal-editDonatur").modal("show");
             });
 
+            //Button Preview Data Donatur
             $(".view_donatur").click(function(){
                 var id = $(this).attr('kode');
                 // console.log(id);
@@ -539,15 +381,17 @@
                 $("#modal-viewDonatur").modal("show");
             });
 
-            //button close modal
+            //button close modal Preview Donatur
             $("#close-viewDonatur").click(function(){
                 $("#modal-viewDonatur").modal("hide");
             });
+
+            //Button Close Modal Edit Donatur
             $("#close-editDonatur").click(function(){
                 $("#modal-editDonatur").modal("hide");
             });
 
-            //pesan sukses 
+            //pesan sukses Add Data Donatur
             $("#formAddDonatur").submit(function(e){  
                 e.preventDefault();
                 Swal.fire({
@@ -569,6 +413,7 @@
                 });
             });
 
+            //pesan sukses Edit Data Donatur
             $("#formEditDonatur").submit(function(e){  
                 e.preventDefault();
                 Swal.fire({
@@ -590,6 +435,152 @@
                 });
             });
         });
+        ///////////////////////////////////////////// TUTUP DONATUR /////////////////////////////////////////////
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////// SANTRI / SISWA LOLOS //////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //Button Preview Data Santri
+        $(".btn_viewSantri").click(function(){
+            var id = $(this).attr('kode');
+            // console.log(id);
+
+            $.ajax({
+                type: 'POST',
+                url : '{{route('admin.viewLolos')}}',
+                cache : false,
+                data : {
+                    _token : "{{ csrf_token() }}",
+                    id : id
+                },
+                success: function(respond){
+                    $("#loadViewSantri").html(respond);
+                }
+            });
+
+            $("#modal-viewSantri").modal("show");
+        });
+
+        // Menutup modal view pendaftar
+        $("#close-viewSantri").click(function(){
+            $("#modal-viewSantri").modal("hide");
+        });
+
+        //Ini Untuk Edit Santri
+
+        //Ini untuk hapus santri
+        $(".konfirmasiDeleteLolos").click(function(e){
+            //memilih form dari si button
+            form = $(this).closest('form');
+
+            e.preventDefault();
+            Swal.fire({
+                title: "Konfirmasi Hapus Data Santri",
+                showCancelButton: true,
+                confirmButtonText: "Delete"
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    form.submit();
+                    Swal.fire("Deleted!", "", "success");
+                }
+            });
+        });
+
+        //Batalkan Kelulusan Santri
+        $(".btn_batalLolos").click(function(e){
+                //memilih form dari si button
+                form = $(this).closest('form');
+
+            e.preventDefault();
+            Swal.fire({
+                title: "Batalkan Kelulusan Santri ?",
+                showCancelButton: true,
+                confirmButtonText: "Ya, Lanjutkan",
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    form.submit();
+                    Swal.fire("Sukses!", "", "success");
+                }
+            });
+        });
+
+        ///////////////////////////////////////////// TUTUP SANTRI /////////////////////////////////////////////
+        
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////// SANTRI / SISWA Gagal //////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //Button Preview Data Santri Gagal
+        $(".btn_viewGagal").click(function(){
+            var id = $(this).attr('kode');
+            // console.log(id);
+
+            $.ajax({
+                type: 'POST',
+                url : '{{route('admin.viewGagal')}}',
+                cache : false,
+                data : {
+                    _token : "{{ csrf_token() }}",
+                    id : id
+                },
+                success: function(respond){
+                    $("#loadViewGagal").html(respond);
+                }
+            });
+
+            $("#modal-viewGagal").modal("show");
+        });
+
+        // Menutup modal view Santri Gagal
+        $("#close-viewGagal").click(function(){
+            $("#modal-viewGagal").modal("hide");
+        });
+
+        //Ini Untuk Edit Santri Gagal
+
+        //Ini untuk hapus santriGagal
+        $(".konfirmasiDeleteGagal").click(function(e){
+            //memilih form dari si button
+            form = $(this).closest('form');
+
+            e.preventDefault();
+            Swal.fire({
+                title: "Konfirmasi Hapus Data Santri",
+                showCancelButton: true,
+                confirmButtonText: "Delete"
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    form.submit();
+                    Swal.fire("Deleted!", "", "success");
+                }
+            });
+        });
+
+        //Batalkan Kelulusan Santri
+        $(".btn_batalGagal").click(function(e){
+                //memilih form dari si button
+                form = $(this).closest('form');
+
+            e.preventDefault();
+            Swal.fire({
+                title: "Batalkan Kelulusan Santri ?",
+                showCancelButton: true,
+                confirmButtonText: "Ya, Lanjutkan",
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    form.submit();
+                    Swal.fire("Sukses!", "", "success");
+                }
+            });
+        });
+
+        ///////////////////////////////////////////// TUTUP Gagal ///////////////////////////////////////////////
 
         // Script to toggle sekolah form visibility based on status selection
         document.getElementById('status').addEventListener('change', function () {

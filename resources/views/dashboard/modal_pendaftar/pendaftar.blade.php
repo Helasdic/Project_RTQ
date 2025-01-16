@@ -32,29 +32,7 @@
                         <!-- Button to trigger modal -->
                         <button class="btn btn-primary btn-sm btn-preview"
                             data-bs-toggle="modal" 
-                            data-bs-target="#previewModal" 
-                            data-id="{{ $item->id }}" 
-                            data-nama-lengkap="{{ $item->nama_lengkap }}"
-                            data-nama-panggilan="{{ $item->nama_panggilan }}"
-                            data-jenis-kelamin="{{ $item->jenis_kelamin }}"
-                            data-tempat-lahir="{{ $item->tempat_lahir }}"
-                            data-tanggal-lahir="{{ $item->tanggal_lahir }}"
-                            data-alamat-lengkap="{{ $item->alamat_lengkap }}"
-                            data-status="{{ $item->status }}"
-                            data-asal-sekolah="{{ $item->sekolah?->asal_sekolah ?? '-' }}"
-                            data-nisn="{{ $item->sekolah?->nisn ?? '-' }}"
-                            data-npsn="{{ $item->sekolah?->npsn ?? '-' }}"
-                            data-nik="{{ $item->nik }}"
-                            data-anak-ke="{{ $item->anak_ke }}"
-                            data-jumlah-saudara="{{ $item->jumlah_saudara }}"
-                            data-nama-ayah="{{ $item->nama_ayah }}"
-                            data-pekerjaan-ayah="{{ $item->pekerjaan_ayah }}"
-                            data-pendidikan-ayah="{{ $item->pendidikan_ayah }}"
-                            data-alamat-ayah="{{ $item->alamat_ayah }}"
-                            data-nama-ibu="{{ $item->nama_ibu }}"
-                            data-pekerjaan-ibu="{{ $item->pekerjaan_ibu }}"
-                            data-pendidikan-ibu="{{ $item->pendidikan_ibu }}"
-                            data-alamat-ibu="{{ $item->alamat_ibu }}">
+                            data-bs-target="#previewModal">
                             <i class="bi bi-eye"></i>
                         </button>
                         <form action="{{ route('siswa.delete', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus siswa ini?');">

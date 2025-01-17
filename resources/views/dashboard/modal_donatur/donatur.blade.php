@@ -29,7 +29,7 @@
                                 <button class="btn btn-secondary btn-sm edit_donatur" kode="{{$donatur -> id}}" style="margin: 1px;"><i class="bi bi-pencil-square"></i></button>
                                 <form action="/admin/donatur/{{$donatur -> id}}/delete" method="POST">
                                     @csrf
-                                    <button class="btn btn-secondary btn-sm konfirmasiDeleteDonatur" style="margin: 1px;">
+                                    <button class="btn btn-danger btn-sm konfirmasiDeleteDonatur" style="margin: 1px;">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </form>

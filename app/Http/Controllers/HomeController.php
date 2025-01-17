@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donatur;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -27,7 +28,8 @@ class HomeController extends Controller
                 'pesan' => $pesan,
             ];
 
-            $simpan = DB::table('feedback')->insert($data);
+            // $simpan = DB::table('feedback')->insert($data);
+            $simpan = Feedback::create($data);
 
             if($simpan){
                 return Redirect::back()->with(['success'=> 'Data Berhasil Disimpan']);

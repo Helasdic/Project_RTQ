@@ -1,5 +1,5 @@
 <div class="container" style="padding: 10px 40px;">
-    <h3 class="primay">Data Detail Pendaftar</h3>
+    <h3 class="primay">Data Detail Santri</h3>
 
     {{-- data siswa --}}
     <div class="row mt-3 primay">
@@ -10,7 +10,7 @@
             <h5>Nama Lengkap</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> nama_lengkap}}</p>
+            <p>: {{$getSantri -> nama_lengkap}}</p>
         </div>
     </div>
     <div class="row">
@@ -18,7 +18,7 @@
             <h5>Nama Panggilan</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> nama_panggilan}}</p>
+            <p>: {{$getSantri -> nama_panggilan}}</p>
         </div>
     </div>
     <div class="row">
@@ -26,7 +26,7 @@
             <h5>Jenis Kelamin</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> jenis_kelamin}}</p>
+            <p>: {{$getSantri -> jenis_kelamin}}</p>
         </div>
     </div>
     <div class="row">
@@ -34,7 +34,7 @@
             <h5>Tempat Lahir</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> tempat_lahir}}</p>
+            <p>: {{$getSantri -> tempat_lahir}}</p>
         </div>
     </div>
     <div class="row">
@@ -42,7 +42,7 @@
             <h5>Tanggal Lahir</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{date('d/m/Y', strtotime($getPendaftar -> tanggal_lahir))}}</p>
+            <p>: {{date('d/m/Y', strtotime($getSantri -> tanggal_lahir))}}</p>
         </div>
     </div>
     <div class="row">
@@ -50,7 +50,7 @@
             <h5>Alamat Lengkap</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> alamat_lengkap}}</p>
+            <p>: {{$getSantri -> alamat_lengkap}}</p>
         </div>
     </div>
     <div class="row">
@@ -58,7 +58,7 @@
             <h5>NIK</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> nik}}</p>
+            <p>: {{$getSantri -> nik}}</p>
         </div>
     </div>
     <div class="row">
@@ -66,7 +66,7 @@
             <h5>Anak Ke-</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> anak_ke}}</p>
+            <p>: {{$getSantri -> anak_ke}}</p>
         </div>
     </div>
     <div class="row">
@@ -74,7 +74,7 @@
             <h5>Jumlah Saudara Kandung</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> jumlah_saudara_kandung}}</p>
+            <p>: {{$getSantri -> jumlah_saudara_kandung}}</p>
         </div>
     </div>
     
@@ -87,7 +87,7 @@
             <h5>Nama Ayah</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> nama_ayah}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> nama_ayah}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -95,7 +95,7 @@
             <h5>Pekerjaan Ayah</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> pekerjaan_ayah}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> pekerjaan_ayah}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -103,7 +103,7 @@
             <h5>Pendidikan Ayah</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> pendidikan_ayah}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> pendidikan_ayah}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -111,7 +111,7 @@
             <h5>Alamat Ayah</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> alamat_ayah}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> alamat_ayah}}</p>
         </div>
     </div>
 
@@ -120,7 +120,7 @@
             <h5>Nama ibu</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> nama_ibu}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> nama_ibu}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -128,7 +128,7 @@
             <h5>Pekerjaan ibu</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> pekerjaan_ibu}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> pekerjaan_ibu}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -136,7 +136,7 @@
             <h5>Pendidikan ibu</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> pendidikan_ibu}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> pendidikan_ibu}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -144,7 +144,7 @@
             <h5>Alamat ibu</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> walisiswa -> alamat_ibu}}</p>
+            <p>: {{$getSantri -> orang_tua_lolos -> alamat_ibu}}</p>
         </div>
     </div>
 
@@ -157,7 +157,7 @@
             <h5>Asal Sekolah</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> sekolah -> asal_sekolah ?? '-'}}</p>
+            <p>: {{$getSantri -> sekolah_lolos -> asal_sekolah ?? '-'}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -165,7 +165,7 @@
             <h5>Alamat Sekolah</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> sekolah -> alamat_sekolah ?? '-'}}</p>
+            <p>: {{$getSantri -> sekolah_lolos -> alamat_sekolah ?? '-'}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -173,7 +173,7 @@
             <h5>NISN</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> sekolah -> nisn ?? '-'}}</p>
+            <p>: {{$getSantri -> sekolah_lolos -> nisn ?? '-'}}</p>
         </div>
     </div>
     <div class="row mt">
@@ -181,7 +181,7 @@
             <h5>NPSN</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> sekolah -> npsn ?? '-'}}</p>
+            <p>: {{$getSantri -> sekolah_lolos -> npsn ?? '-'}}</p>
         </div>
     </div>
 
@@ -194,7 +194,7 @@
             <h5>Kartu Keluarga</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> kartu_keluarga}}</p>
+            <p>: {{$getSantri -> kartu_keluarga}}</p>
         </div>
     </div>
     <div class="row">
@@ -203,7 +203,7 @@
         </div>
         <div class="col-md-8">
             @php
-                $cek = $getPendaftar -> kartu_keluarga;
+                $cek = $getSantri -> kartu_keluarga;
                 if($cek == '-'){
                     $icon = asset('assets/images/quran.jpeg');
                 } else {
@@ -219,7 +219,7 @@
             <h5>Akta Kelahiran</h5>
         </div>
         <div class="col-md-8">
-            <p>: {{$getPendaftar -> akta_kelahiran}}</p>
+            <p>: {{$getSantri -> akta_kelahiran}}</p>
         </div>
     </div>
     <div class="row">
@@ -228,7 +228,7 @@
         </div>
         <div class="col-md-8">
             @php
-                $cek = $getPendaftar -> akta_kelahiran;
+                $cek = $getSantri -> akta_kelahiran;
                 if($cek == '-'){
                     $icon = asset('assets/images/quran.jpeg');
                 } else {

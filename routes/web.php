@@ -55,18 +55,21 @@ Route::middleware(['auth:admin'])-> group(function () {
     //dashboard admin pendaftar
     Route::post('/admin/pendaftar/view', [PendaftarController::class, 'viewPendaftar'])->name('admin.viewPendaftar');
     Route::post('/admin/pendaftar/edit', [PendaftarController::class, 'editFormPendaftar'])->name('admin.editFormPendaftar');
+    Route::post('/admin/pendaftar/{id}/edit', [PendaftarController::class, 'editPendaftar'])->name('admin.editPendaftar');
     Route::post('/admin/pendaftar/{id}/lolos', [PendaftarController::class, 'pendaftarLolos'])->name('admin.PendaftarLolos');
     Route::post('/admin/pendaftar/{id}/gagal', [PendaftarController::class, 'pendaftarGagal'])->name('admin.pendaftarGagal');
 
     //dashboard admin siswa lolos
     Route::post('/admin/lolos/view', [SiswaLolosController::class, 'viewLolos'])->name('admin.viewLolos');
     Route::post('/admin/lolos/edit', [SiswaLolosController::class, 'editFormLolos'])->name('admin.editFormLolos');
+    Route::post('/admin/lolos/{id}/edit', [PendaftarController::class, 'editLolos'])->name('admin.editLolos');
     Route::post('/admin/lolos/{id}/batal', [SiswaLolosController::class, 'batalLolos'])->name('admin.batalLolos');
     Route::post('/admin/lolos/{id}/delete', [SiswaLolosController::class, 'deleteLolos'])->name('admin.deleteLolos');
     
     //dashboard admin siswa Gagal
     Route::post('/admin/gagal/view', [SiswaGagalController::class, 'viewGagal'])->name('admin.viewGagal');
     Route::post('/admin/gagal/edit', [SiswaGagalController::class, 'editFormGagal'])->name('admin.editFormGagal');
+    Route::post('/admin/gagal/{id}/edit', [SiswaGagalController::class, 'editGagal'])->name('admin.editGagal');
     Route::post('/admin/gagal/{id}/batal', [SiswaGagalController::class, 'batalGagal'])->name('admin.batalGagal');
     Route::post('/admin/gagal/{id}/delete', [SiswaGagalController::class, 'deleteGagal'])->name('admin.deleteGagal');
 

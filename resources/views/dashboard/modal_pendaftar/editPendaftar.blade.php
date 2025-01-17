@@ -1,5 +1,5 @@
 <div class="container" style="padding: 10px 40px;">
-    <form id="formDaftar" method="POST" action="{{ route('daftar.store') }}" enctype="multipart/form-data">
+    <form id="formDaftar" method="POST" action="{{ route('admin.editPendaftar', $getPendaftar->id) }}" enctype="multipart/form-data">
         @csrf
         <!-- Data Peserta Didik -->
         <div class="mb-3">
@@ -55,7 +55,7 @@
         {{-- Data Diri Dalam Keluarga --}}
         <div class="mb-3">
             <label for="nik" class="form-label">NIK</label>
-            <input type="number" class="frame-input" id="nik" aria-describedby="nik" name="nik" value="{{$getPendaftar -> nik}}" required>
+            <input type="number" class="frame-input" id="nik" aria-describedby="nik" name="nik" value="{{$getPendaftar -> nik}}" readonly required>
         </div>
         <div class="mb-3">
             <label for="anakKe" class="form-label">Anak Ke-</label>
@@ -108,14 +108,14 @@
         <div class="mb-3">
             <label for="kartuKeluargaBaru" class="form-label">Upload Kartu Keluarga (KK)</label>
             <input type="file" class="form-control" id="kartuKeluargaBaru" name="kartuKeluargaBaru" accept=".jpg, .jpeg, .png, .svg">
-            <input type="hidden" id="kartuKeluargaLama" name="kartuKeluargaLama" accept=".jpg, .jpeg, .png, .svg" required>
+            <input type="hidden" id="kartuKeluargaLama" name="kartuKeluargaLama" value="{{$getPendaftar -> kartu_keluarga}}" accept=".jpg, .jpeg, .png, .svg" required>
         </div>
         <div class="mb-3">
             <label for="aktaKelahiranBaru" class="form-label">Upload Akta Kelahiran</label>
             <input type="file" class="form-control" id="aktaKelahiranBaru" name="aktaKelahiranBaru" accept=".jpg, .jpeg, .png, .svg">
-            <input type="hidden" id="aktaKelahiranLama" name="aktaKelahiranLama" accept=".jpg, .jpeg, .png, .svg" required>
+            <input type="hidden" id="aktaKelahiranLama" name="aktaKelahiranLama" value="{{$getPendaftar -> akta_kelahiran}}" accept=".jpg, .jpeg, .png, .svg" required>
         </div>
 
-        <button type="submit" class="btn w-100" style="background-color: var(--primay-2);">Kirim</button>
+        <button type="submit" class="btn w-100" style="background-color: var(--primay-2); color: white;">Kirim</button>
     </form>  
 </div>

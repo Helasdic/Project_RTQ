@@ -67,7 +67,13 @@ class KegiatanController extends Controller
     }
 
     public function deleteKegiatan($id){
-        $delete = Kegiatan::where('id', $id)->delete();
+        $delete = Kegiatan::find($id);
+        if($delete->foto_kegiatan != '-'){
+            $folderPath = "public/kegiatan/";
+            Storage::delete($folderPath.$delete->foto_kegiatan);
+        }
+        $delete->delete();
+
         if($delete){
             return Redirect::back()->with(['success' => 'Data Berhasil Dihapus']);
         } else {

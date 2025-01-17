@@ -469,6 +469,29 @@
         });
 
         //Ini Untuk Edit Santri
+        $(".btn_editSantri").click(function(){
+                var id = $(this).attr('kode');
+                // console.log(id);
+                $.ajax({
+                    type: 'POST',
+                    url : '{{route('admin.editFormLolos')}}',
+                    cache : false,
+                    data : {
+                        _token : "{{ csrf_token() }}",
+                        id : id
+                        },
+                    success: function(respond){
+                        $("#loadEditSantri").html(respond);
+                    }
+                });
+
+                $("#modal-editSantri").modal("show");
+            });
+
+            // Menutup modal edit Santri
+            $("#close-editSantri").click(function(){
+                $("#modal-editSantri").modal("hide");
+            });
 
         //Ini untuk hapus santri
         $(".konfirmasiDeleteLolos").click(function(e){
@@ -541,6 +564,29 @@
         });
 
         //Ini Untuk Edit Santri Gagal
+        $(".btn_editGagal").click(function(){
+            var id = $(this).attr('kode');
+            // console.log(id);
+            $.ajax({
+                type: 'POST',
+                url: '{{route('admin.editFormGagal')}}',
+                cache: false,
+                data : {
+                    _token : "{{ csrf_token() }}",
+                    id : id
+                },
+                success: function(respond){
+                    $("#loadEditGagal").html(respond);
+                }
+            });
+
+            $("#modal-editGagal").modal("show");
+        });
+
+        // Menutup modal edit Santri Gagal
+        $("#close-editGagal").click(function(){
+            $("#modal-editGagal").modal("hide");
+        });
 
         //Ini untuk hapus santriGagal
         $(".konfirmasiDeleteGagal").click(function(e){

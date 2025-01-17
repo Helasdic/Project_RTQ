@@ -32,7 +32,7 @@ class PendaftarController extends Controller
         return view('dashboard.modal_pendaftar.viewPendaftar', compact('getPendaftar'));
     }
 
-    //ini buat edit data pendaftar
+    //ini buat form edit data pendaftar
     public function editFormPendaftar(Request $request){
         $id = $request->input('id');
 
@@ -40,6 +40,139 @@ class PendaftarController extends Controller
 
         return view('dashboard.modal_pendaftar.editPendaftar', compact('getPendaftar'));
     }
+
+    //ini buat aksi edit/update data pendaftar
+    public function editPendaftar(Request $request, $id){
+
+        //ini data siswa
+        $nama_lengkap = $request->input('namaLengkap');
+        $nama_panggilan = $request->input('namaPanggilan');
+        $jenis_kelamin = $request->input('jenisKelamin');
+        $tempat_lahir = $request->input('tempatLahir');
+        $tanggal_lahir = $request->input('tanggalLahir');
+        $alamat_lengkap = $request->input('alamatLengkap');
+        $nik = $request->input('nik');
+        $anak_ke = $request->input('anakKe');
+        $jumlah_saudara_kandung = $request->input('jumlahSaudara');
+
+        //inisialisasi nama file untuk kk dan akta
+        $kutip = array(' ', '"', "'", '-', '/', '(', ')', '.', ',', ':', ';', '?', '!', '@', '#', '$', '%', '^', '&', '*', '=', '+', '|', '~', '`', '{', '}', '[', ']', '<', '>', '/', '\\', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        $ganti = "_";
+        $nama_kecil = strtolower($nama_lengkap);
+        $nama_lengkap_baru = str_replace($kutip, $ganti, $nama_kecil);
+
+        $kk_lama = $request->input('kartuKeluargaLama');
+        if($request->hasFile('kartuKeluargaBaru')){
+            $kk = "kk_".$nama_lengkap_baru."_".time().".".$request->file('kartuKeluargaBaru')->getClientOriginalExtension();
+        } else {
+            $kk = $kk_lama;
+        }
+
+        $akta_lama = $request->input('aktaKelahiranLama');
+        if($request->hasFile('aktaKelahiranBaru')){
+            $akta = "akta_".$nama_lengkap_baru."_".time().".".$request->file('aktaKelahiranBaru')->getClientOriginalExtension();
+        } else {
+            $akta = $akta_lama;
+        }
+
+        // dd($akta);
+
+        //ini data sekolah
+        $asal_sekolah = $request->input('asalSekolah');
+        $alamat_sekolah = $request->input('alamatSekolah');
+        $nisn = $request->input('nisn');
+        $npsn = $request->input('npsn');
+
+        //ini data orang tua
+        $nama_ayah = $request->input('namaAyah');
+        $pekerjaan_ayah = $request->input('pekerjaanAyah');
+        $pendidikan_ayah = $request->input('pendidikanAyah');
+        $alamat_ayah = $request->input('alamatAyah');
+
+        $nama_ibu = $request->input('namaIbu');
+        $pekerjaan_ibu = $request->input('pekerjaanIbu');
+        $pendidikan_ibu = $request->input('pendidikanIbu');
+        $alamat_ibu = $request->input('alamatIbu');
+
+        //mulai aksi update data
+        try{
+            // Simpan data siswa ke database
+            $data_siswa = [
+                'nama_lengkap' => $nama_lengkap,
+                'nama_panggilan' => $nama_panggilan,
+                'jenis_kelamin' => $jenis_kelamin,
+                'tempat_lahir' => $tempat_lahir,
+                'tanggal_lahir' => $tanggal_lahir,
+                'alamat_lengkap' => $alamat_lengkap,
+                'nik' => $nik,
+                'anak_ke' => $anak_ke,
+                'jumlah_saudara_kandung' => $jumlah_saudara_kandung,
+                'kartu_keluarga' => $kk,
+                'akta_kelahiran' => $akta
+            ];
+            $update_data_siswa = Siswa::where('id', $id)->update($data_siswa);
+
+            // dd($update_data_siswa);
+
+            if($update_data_siswa){
+                if($request -> hasFile('kartuKeluargaBaru')){
+                    //hapus file kartu keluarga lama
+                    $folderPathLama = "public/kartu_keluarga/".$kk_lama;
+                    Storage::delete($folderPathLama);// hapus file lama
+
+                    //store file kartu keluarga baru
+                    $folderPath = "public/kartu_keluarga/";
+                    $request -> file('kartuKeluargaBaru') -> storeAs($folderPath, $kk);
+                }
+
+                if($request -> hasFile('aktaKelahiranBaru')){
+                    //hapus file akta kelahiran lama
+                    $folderPathLama = "public/akta_kelahiran/".$akta_lama;
+                    Storage::delete($folderPathLama);// hapus file lama
+
+                    //store file akta kelahiran baru
+                    $folderPath = "public/akta_kelahiran/";
+                    $request -> file('aktaKelahiranBaru') -> storeAs($folderPath, $akta);
+                }
+            }
+
+            // Simpan data sekolah
+            $data_sekolah = [
+                'nik_siswa' => $nik,
+                'asal_sekolah' => $asal_sekolah,
+                'alamat_sekolah' => $alamat_sekolah,
+                'nisn' => $nisn,
+                'npsn' => $npsn
+            ];
+            $update_data_sekolah = Sekolah::where('nik_siswa', $nik)->update($data_sekolah);
+
+            // Simpan data orang tua
+            $data_orangtua = [
+                'nik_siswa' => $nik,
+                'nama_ayah' => $nama_ayah,
+                'pekerjaan_ayah' => $pekerjaan_ayah,
+                'pendidikan_ayah' => $pendidikan_ayah,
+                'alamat_ayah' => $alamat_ayah,
+                'nama_ibu' => $nama_ibu,
+                'pekerjaan_ibu' => $pekerjaan_ibu,
+                'pendidikan_ibu' => $pendidikan_ibu,
+                'alamat_ibu' => $alamat_ibu
+            ];
+            $update_data_orangtua = WaliSiswa::where('nik_siswa', $nik)->update($data_orangtua);
+
+            if($update_data_siswa && $update_data_sekolah && $update_data_orangtua){
+                return Redirect::back()->with('success', 'Data Berhasil Disimpan');
+            } else {
+                return Redirect::back()->withErrors('error', 'Data Gagal Disimpan');
+            }
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            return Redirect::back()->withErrors('error', 'Data Gagal Disimpan: ' . $e->getMessage());
+        }
+
+
+    }
+
     //ini buat delete data pendaftar
     public function deleteSiswa($id){
         try {
@@ -51,7 +184,19 @@ class PendaftarController extends Controller
             $sekolah = Sekolah::where('nik_siswa', $cek);
             $orangtua = WaliSiswa::where('nik_siswa', $cek);
 
-            // dd($orangtua);
+            //Hapus data file kk dan akta 
+            $kk = $siswa -> kartu_keluarga;
+            $akta = $siswa -> akta_kelahiran;
+
+            if($kk != '-'){
+                $folderPathKk = "public/kartu_keluarga/".$kk;
+                Storage::delete($folderPathKk);
+            }
+    
+            if($akta != '-'){
+                $folderPathAkta = "public/akta_kelahiran/".$akta;
+                Storage::delete($folderPathAkta);
+            }
 
             // Hapus data siswa
             $siswa->delete();

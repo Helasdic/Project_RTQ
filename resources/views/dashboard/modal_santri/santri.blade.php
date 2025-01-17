@@ -60,3 +60,18 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Edit Santri-->
+<div class="modal fade" id="modal-editSantri" tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body" id="loadEditSantri">
+                
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" id="close-editSantri" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>

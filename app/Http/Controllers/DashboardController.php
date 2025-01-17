@@ -160,7 +160,14 @@ class DashboardController extends Controller
 
     public function deleteDonatur($id){
         // hapus data donatur
-        $delete = Donatur::where('id', $id)->delete();
+        $delete = Donatur::findOrFail($id);
+        if($delete->foto_donasi != '-'){
+            $folderPath = "public/donasi/".$delete->foto_donasi;
+            Storage::delete($folderPath);
+        }
+
+        $delete->delete();
+
         if($delete){
             return Redirect::back()->with(['success' => 'Data Berhasil Dihapus']);
         } else {

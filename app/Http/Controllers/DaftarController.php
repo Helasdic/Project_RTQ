@@ -8,6 +8,7 @@ use App\Models\WaliSiswa;
 use illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class DaftarController extends Controller
 {
@@ -80,6 +81,7 @@ class DaftarController extends Controller
 
             if($simpan_data_siswa){
                 if($request -> hasFile('kartuKeluarga')){
+                    //store file kartu keluarga baru
                     $folderPath = "public/kartu_keluarga/";
                     $request -> file('kartuKeluarga') -> storeAs($folderPath, $kk);
                 }
@@ -114,8 +116,11 @@ class DaftarController extends Controller
             ];
             $simpan_data_orangtua = WaliSiswa::create($data_orangtua);
 
-            return Redirect::back()->with('success', 'Data Berhasil Disimpan');
-
+            if($simpan_data_siswa && $simpan_data_sekolah && $simpan_data_orangtua){
+                return Redirect::back()->with('success', 'Data Berhasil Disimpan');
+            }else{
+                return Redirect::back()->withErrors('error', 'Data Gagal Disimpan');
+            }
         } catch (\Exception $e) {
             // Log error untuk debugging
             // Log::error('Gagal menyimpan aplikasi: ' . $e->getMessage());

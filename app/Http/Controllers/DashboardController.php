@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Donatur;
 use App\Models\Feedback;
+use App\Models\OrangTuaGagal;
+use App\Models\OrangTuaLolos;
 use App\Models\Sekolah;
+use App\Models\SekolahGagal;
+use App\Models\SekolahLolos;
 use App\Models\Siswa;
+use App\Models\SiswaGagal;
+use App\Models\SiswaLolos;
 use App\Models\WaliSiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,18 +26,13 @@ class DashboardController extends Controller
         $getFeedback = Feedback::paginate(20);
         $getDonatur = Donatur::paginate(20);
         $getPendaftar = Siswa::with(['walisiswa','sekolah'])->paginate(20);
+        $getPendaftarLolos = SiswaLolos::with(['orang_tua_lolos','sekolah_lolos'])->paginate(20);
+        $getPendaftarGagal = SiswaGagal::with(['orang_tua_gagal','sekolah_gagal'])->paginate(20);
 
         // dd($getDonatur);
 
-        return view('dashboard.maindashboard', compact('getFeedback', 'getDonatur', 'getPendaftar'));
-    }
-
-    public function viewPendaftar(Request $request){
-        $id = $request->input('id');
-
-        $getPendaftar = Siswa::find($id);
-
-        return view('dashboard.modal_pendaftar.viewPendaftar', compact('getPendaftar'));
+        return view('dashboard.maindashboard', compact('getFeedback',
+         'getDonatur', 'getPendaftar', 'getPendaftarLolos', 'getPendaftarGagal'));
     }
 
 
@@ -159,39 +160,18 @@ class DashboardController extends Controller
 
     public function deleteDonatur($id){
         // hapus data donatur
-        $delete = Donatur::where('id', $id)->delete();
+        $delete = Donatur::findOrFail($id);
+        if($delete->foto_donasi != '-'){
+            $folderPath = "public/donasi/".$delete->foto_donasi;
+            Storage::delete($folderPath);
+        }
+
+        $delete->delete();
+
         if($delete){
             return Redirect::back()->with(['success' => 'Data Berhasil Dihapus']);
         } else {
             return Redirect::back()->with(['error' => 'Data Gagal Dihapus']);
         }
     }
-
-    public function deleteSiswa($id){
-        try {
-            // Cari siswa berdasarkan ID
-            $siswa = Siswa::findOrFail($id);
-
-            $cek = $siswa -> nik;
-
-            $sekolah = Sekolah::where('nik_siswa', $cek);
-            $orangtua = WaliSiswa::where('nik_siswa', $cek);
-
-            // dd($orangtua);
-
-            // Hapus data siswa
-            $siswa->delete();
-            $sekolah->delete();
-            $orangtua->delete();
-
-            // Redirect ke halaman dashboard dengan pesan sukses
-            return redirect()->route('dashboard')->with('success', 'Data siswa berhasil dihapus.');
-        } catch (\Exception $e) {
-            // Redirect dengan pesan error jika terjadi kesalahan
-            return redirect()->route('dashboard')->with('error', 'Terjadi kesalahan saat menghapus data siswa.');
-        }
-    }
-
-
-
 }

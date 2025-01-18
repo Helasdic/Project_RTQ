@@ -23,7 +23,4 @@ class WaliSiswa extends Model
         'alamat_ibu'
     ];
 
-    public function siswa() {
-        return $this->hasMany(Siswa::class, 'id_wali'); // Tetap hasMany
-    }
 }

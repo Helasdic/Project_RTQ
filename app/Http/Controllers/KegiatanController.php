@@ -48,7 +48,8 @@ class KegiatanController extends Controller
                 'foto_kegiatan' => $foto_kegiatan,
             ];
 
-            $simpan = DB::table('kegiatan')->insert($data);
+            // $simpan = DB::table('kegiatan')->insert($data);
+            $simpan = Kegiatan::create($data);
 
             if($simpan){
                 if($request -> hasFile('fotoKegiatan')){
@@ -66,7 +67,13 @@ class KegiatanController extends Controller
     }
 
     public function deleteKegiatan($id){
-        $delete = DB::table('kegiatan')->where('id', $id)->delete();
+        $delete = Kegiatan::find($id);
+        if($delete->foto_kegiatan != '-'){
+            $folderPath = "public/kegiatan/";
+            Storage::delete($folderPath.$delete->foto_kegiatan);
+        }
+        $delete->delete();
+
         if($delete){
             return Redirect::back()->with(['success' => 'Data Berhasil Dihapus']);
         } else {
@@ -107,7 +114,7 @@ class KegiatanController extends Controller
                 'foto_kegiatan' => $foto_kegiatan
             ];
 
-            $update = DB::table('kegiatan')->where('id', $id)->update($data);
+            $update = Kegiatan::where('id', $id)->update($data);
             if($update){
                 if($request -> hasFile('fotoKegiatan')){
 

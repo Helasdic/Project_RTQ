@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportPendaftar;
 use Illuminate\Http\Request;
 use App\Models\OrangTuaGagal;
 use App\Models\OrangTuaLolos;
@@ -15,6 +16,7 @@ use App\Models\WaliSiswa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PendaftarController extends Controller
 {
@@ -30,6 +32,11 @@ class PendaftarController extends Controller
         // dd($getPendaftar);
 
         return view('dashboard.modal_pendaftar.viewPendaftar', compact('getPendaftar'));
+    }
+
+    function export_excel()
+    {
+        return Excel::download(new ExportPendaftar,"pendaftar.xlsx");
     }
 
     //ini buat form edit data pendaftar

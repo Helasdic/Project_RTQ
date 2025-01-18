@@ -53,6 +53,7 @@ Route::middleware(['auth:admin'])-> group(function () {
     Route::delete('/dashboard/siswa/{id}', [PendaftarController::class, 'deleteSiswa'])->name('siswa.delete');
 
     //dashboard admin pendaftar
+    Route::post('/admin/pendaftar/export/excel',[PendaftarController::class,'export_excel'])->name('admin.export_excel');
     Route::post('/admin/pendaftar/view', [PendaftarController::class, 'viewPendaftar'])->name('admin.viewPendaftar');
     Route::post('/admin/pendaftar/edit', [PendaftarController::class, 'editFormPendaftar'])->name('admin.editFormPendaftar');
     Route::post('/admin/pendaftar/{id}/edit', [PendaftarController::class, 'editPendaftar'])->name('admin.editPendaftar');
@@ -60,6 +61,7 @@ Route::middleware(['auth:admin'])-> group(function () {
     Route::post('/admin/pendaftar/{id}/gagal', [PendaftarController::class, 'pendaftarGagal'])->name('admin.pendaftarGagal');
 
     //dashboard admin siswa lolos
+    Route::post('/admin/lolos/export/excel',[SiswaLolosController::class,'export_excel'])->name('admin.santri.export_excel');
     Route::post('/admin/lolos/view', [SiswaLolosController::class, 'viewLolos'])->name('admin.viewLolos');
     Route::post('/admin/lolos/edit', [SiswaLolosController::class, 'editFormLolos'])->name('admin.editFormLolos');
     Route::post('/admin/lolos/{id}/edit', [PendaftarController::class, 'editLolos'])->name('admin.editLolos');

@@ -117,7 +117,7 @@
             });
 
             // Tombol ekspor data
-            $(".btn-success:contains('Ekspor')").click(function(){
+            $("#exportButton").click(function() {
                 Swal.fire({
                     title: "Ekspor Data",
                     text: "Apakah Anda yakin ingin mengekspor data ini?",
@@ -127,10 +127,12 @@
                     cancelButtonText: "Batal"
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire("Data berhasil diekspor!", "", "success");
+                        // Submit form secara manual jika pengguna mengonfirmasi
+                        $("#exportForm").submit();
                     }
                 });
             });
+
 
             // Tombol pratinjau data
             $(".btn-warning").click(function(){

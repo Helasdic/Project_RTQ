@@ -1,6 +1,11 @@
 <div class="tab-pane fade show active" id="pendaftar" role="tabpanel">
     <div class="d-flex justify-content-between mb-3">
-        <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
+        <form action="{{ route('admin.export_excel') }}" method="POST" id="exportForm">
+            @csrf
+            <button type="submit" class="btn btn-success" id="exportButton">
+                <i class="bi bi-cloud-arrow-down"></i> Ekspor
+            </button>
+        </form>        
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahPendaftarModal">
             Tambah Pendaftar
         </button>                                    

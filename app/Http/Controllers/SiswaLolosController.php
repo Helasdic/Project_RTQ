@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportSantri;
 use App\Models\OrangTuaLolos;
 use App\Models\Sekolah;
 use App\Models\SekolahLolos;
@@ -11,6 +12,7 @@ use App\Models\WaliSiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaLolosController extends Controller
 {
@@ -22,6 +24,11 @@ class SiswaLolosController extends Controller
         // dd($getSantri);
 
         return view('dashboard.modal_santri.viewSantri', compact('getSantri'));
+    }
+
+    function export_excel()
+    {
+        return Excel::download(new ExportSantri,"santri.xlsx");
     }
 
     //Edit form

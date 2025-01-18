@@ -1,6 +1,11 @@
 <div class="tab-pane fade" id="Santri" role="tabpanel">
     <div class="d-flex justify-content-between mb-3">
-        <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
+        <form action="{{ route('admin.santri.export_excel') }}" method="POST" id="exportForm">
+            @csrf
+            <button type="submit" class="btn btn-success" id="exportButton">
+                <i class="bi bi-cloud-arrow-down"></i> Ekspor
+            </button>
+        </form>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">

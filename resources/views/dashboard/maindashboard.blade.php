@@ -117,21 +117,21 @@
             });
 
             // Tombol ekspor data
-            $("#exportButton").click(function() {
-                Swal.fire({
-                    title: "Ekspor Data",
-                    text: "Apakah Anda yakin ingin mengekspor data ini?",
-                    icon: "info",
-                    showCancelButton: true,
-                    confirmButtonText: "Ekspor",
-                    cancelButtonText: "Batal"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Submit form secara manual jika pengguna mengonfirmasi
-                        $("#exportForm").submit();
-                    }
-                });
-            });
+            // $("#exportButton").click(function() {
+            //     Swal.fire({
+            //         title: "Ekspor Data",
+            //         text: "Apakah Anda yakin ingin mengekspor data ini?",
+            //         icon: "info",
+            //         showCancelButton: true,
+            //         confirmButtonText: "Ekspor",
+            //         cancelButtonText: "Batal"
+            //     }).then((result) => {
+            //         if (result.isConfirmed) {
+            //             // Submit form secara manual jika pengguna mengonfirmasi
+            //             $("#exportForm").submit();
+            //         }
+            //     });
+            // });
 
 
             // Tombol pratinjau data

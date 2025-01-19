@@ -76,6 +76,7 @@ Route::middleware(['auth:admin'])-> group(function () {
     Route::post('/admin/gagal/{id}/delete', [SiswaGagalController::class, 'deleteGagal'])->name('admin.deleteGagal');
 
     //dashboard admin donatur
+    Route::post('/admin/donatur/export/excel',[DashboardController::class,'export_excel'])->name('admin.donatur.export_excel');
     Route::post('/admin/donatur/store', [DashboardController::class, 'storeDonatur'])->name('admin.storeDonatur');
     Route::post('/admin/donatur/view', [DashboardController::class, 'viewDonatur'])->name('admin.viewDonatur');
     Route::post('/admin/donatur/edit', [DashboardController::class, 'editFormDonatur'])->name('admin.editFormDonatur');

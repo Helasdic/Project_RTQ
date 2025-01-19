@@ -1,7 +1,12 @@
 <div class="tab-pane fade" id="donatur" role="tabpanel">
     <div class="d-flex justify-content-between mb-3">
-        <button class="btn btn-success"><i class="bi bi-cloud-arrow-down"></i> Ekspor</button>
-        <button id="add_donatur" class="btn btn-success ms-2"><i class="bi bi-plus-circle"></i> Tambah Donatur</button>
+        <form action="{{ route('admin.donatur.export_excel') }}" method="POST" id="exportForm">
+            @csrf
+            <button type="submit" class="btn btn-success" id="exportButton">
+                <i class="bi bi-cloud-arrow-down"></i> Ekspor
+            </button>
+        </form>
+         <button id="add_donatur" class="btn btn-success ms-2"><i class="bi bi-plus-circle"></i> Tambah Donatur</button>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered">

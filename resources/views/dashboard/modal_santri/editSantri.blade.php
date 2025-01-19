@@ -13,14 +13,14 @@
             <label for="namaPanggilan" class="form-label">Nama Panggilan</label>
             <input type="text" class="form-control" id="namaPanggilan" name="namaPanggilan" value="{{$getPendaftarLolos -> nama_panggilan}}" required>
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
             <select class="form-control" id="jenisKelamin" name="jenisKelamin" required>
                 <option value="">- pilih -</option>
                 <option value="Laki-Laki" {{ $getPendaftarLolos->jenis_kelamin == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
                 <option value="Perempuan" {{ $getPendaftarLolos->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
             </select>
-        </div>
+        </div> --}}
         <div class="mb-3">
             <label for="tempatLahir" class="form-label">Tempat Lahir</label>
             <input type="text" class="form-control" id="tempatLahir" name="tempatLahir" value="{{$getPendaftarLolos -> tempat_lahir}}" required>

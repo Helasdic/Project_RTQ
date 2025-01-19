@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportDonatur;
 use App\Models\Donatur;
 use App\Models\Feedback;
 use App\Models\OrangTuaGagal;
@@ -17,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardController extends Controller
 {
@@ -97,6 +99,11 @@ class DashboardController extends Controller
         // dd($getKegiatan);
 
         return view('dashboard.modal_donatur.viewDonatur', compact('getDonatur'));
+    }
+
+    function export_excel()
+    {
+        return Excel::download(new ExportDonatur,"donatur.xlsx");
     }
 
     public function editFormDonatur(Request $request){
